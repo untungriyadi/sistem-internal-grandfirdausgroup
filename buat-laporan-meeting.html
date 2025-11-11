@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Sistem Internal Grand Firdaus Group</title>
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport"/>
+    <link rel="icon" href="assets/img/kaiadmin/favicon.ico" type="image/x-icon"/>
+
+    <!-- ckeditor -->
+     <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/47.2.0/ckeditor5.css" crossorigin>
+
+    <!-- Fonts and icons -->
+    <script src="assets/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+      WebFont.load({
+        google: { families: ["Public Sans:300,400,500,600,700"] },
+        custom: {
+          families: [
+            "Font Awesome 5 Solid",
+            "Font Awesome 5 Regular",
+            "Font Awesome 5 Brands",
+            "simple-line-icons",
+          ],
+          urls: ["assets/css/fonts.min.css"],
+        },
+        active: function () {
+          sessionStorage.fonts = true;
+        },
+      });
+    </script>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins.min.css" />
+    <link rel="stylesheet" href="assets/css/kaiadmin.min.css" />
+
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link rel="stylesheet" href="assets/css/demo.css" />
+
+
+    <style>
+      .main-container {
+        font-family: var(--ck-content-font-family);
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .editor-container_classic-editor .editor-container__editor {
+        min-width: 795px;
+        max-width: 795px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Sidebar -->
+      <div class="sidebar" data-background-color="dark">
+        <div class="sidebar-logo">
+          <!-- Logo Header -->
+          <div class="logo-header" data-background-color="dark">
+            <a href="index.html" class="logo">
+              <img
+                src="assets/img/kaiadmin/logo_light.svg"
+                alt="navbar brand"
+                class="navbar-brand"
+                height="20"
+              />
+            </a>
+            <div class="nav-toggle">
+              <button class="btn btn-toggle toggle-sidebar">
+                <i class="gg-menu-right"></i>
+              </button>
+              <button class="btn btn-toggle sidenav-toggler">
+                <i class="gg-menu-left"></i>
+              </button>
+            </div>
+            <button class="topbar-toggler more">
+              <i class="gg-more-vertical-alt"></i>
+            </button>
+          </div>
+          <!-- End Logo Header -->
+        </div>
+        <div class="sidebar-wrapper scrollbar scrollbar-inner">
+          <div class="sidebar-content">
+            <ul class="nav nav-secondary">
+              <li class="nav-item active">
+                <a
+                  data-bs-toggle="collapse"
+                  href="#dashboard"
+                  class="collapsed"
+                  aria-expanded="false"
+                >
+                  <i class="fas fa-home"></i>
+                  <p>Dashboard</p>
+                </a>
+              </li>
+              <li class="nav-section">
+                <span class="sidebar-mini-icon">
+                  <i class="fa fa-ellipsis-h"></i>
+                </span>
+                <h4 class="text-section">Menu</h4>
+              </li>
+              <li class="nav-item">
+                <a href="laporan-meeting.html">
+                  <i class="fas fa-layer-group"></i>
+                  <p>Laporan Meeting</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="">
+                  <i class="fas fa-th-list"></i>
+                  <p>SitePlan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#forms">
+                  <i class="fas fa-pen-square"></i>
+                  <p>Perumahan</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="forms">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="forms/forms.html">
+                        <span class="sub-item">Perencanaan Perumahan</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="forms/forms.html">
+                        <span class="sub-item">Pelaksanaan Perumahan</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="forms/forms.html">
+                        <span class="sub-item">Pengawasan Perumahan</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#tables">
+                  <i class="fas fa-table"></i>
+                  <p>Keuangan</p>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- End Sidebar -->
+
+      <div class="main-panel">
+        <div class="main-header">
+          <div class="main-header-logo">
+            <!-- Logo Header -->
+            <div class="logo-header" data-background-color="dark">
+              <a href="index.html" class="logo">
+                <img
+                  src="assets/img/kaiadmin/logo_light.svg"
+                  alt="navbar brand"
+                  class="navbar-brand"
+                  height="20"
+                />
+              </a>
+              <div class="nav-toggle">
+                <button class="btn btn-toggle toggle-sidebar">
+                  <i class="gg-menu-right"></i>
+                </button>
+                <button class="btn btn-toggle sidenav-toggler">
+                  <i class="gg-menu-left"></i>
+                </button>
+              </div>
+              <button class="topbar-toggler more">
+                <i class="gg-more-vertical-alt"></i>
+              </button>
+            </div>
+            <!-- End Logo Header -->
+          </div>
+          <!-- Navbar Header -->
+          <nav
+            class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom"
+          >
+            <div class="container-fluid">
+              <nav
+                class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex"
+              >
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <button type="submit" class="btn btn-search pe-1">
+                      <i class="fa fa-search search-icon"></i>
+                    </button>
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Cari ..."
+                    class="form-control"
+                  />
+                </div>
+              </nav>
+
+              <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
+                <li
+                  class="nav-item topbar-icon dropdown hidden-caret d-flex d-lg-none"
+                >
+                  <a
+                    class="nav-link dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    href="#"
+                    role="button"
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                  >
+                    <i class="fa fa-search"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-search animated fadeIn">
+                    <form class="navbar-left navbar-form nav-search">
+                      <div class="input-group">
+                        <input
+                          type="text"
+                          placeholder="Search ..."
+                          class="form-control"
+                        />
+                      </div>
+                    </form>
+                  </ul>
+                </li>
+                
+                <li class="nav-item topbar-icon dropdown hidden-caret">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="notifDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <i class="fa fa-bell"></i>
+                    <span class="notification">10</span>
+                  </a>
+                  <ul
+                    class="dropdown-menu notif-box animated fadeIn"
+                    aria-labelledby="notifDropdown"
+                  >
+                    <li>
+                      <div class="dropdown-title">
+                        Kamu punya 10 notifikasi baru
+                      </div>
+                    </li>
+                    <li>
+                      <div class="notif-scroll scrollbar-outer">
+                        <div class="notif-center">
+                          <a href="#">
+                            <div class="notif-icon notif-primary">
+                              <i class="fa fa-user-plus"></i>
+                            </div>
+                            <div class="notif-content">
+                              <span class="block"> New user registered </span>
+                              <span class="time">5 minutes ago</span>
+                            </div>
+                          </a>
+                          <a href="#">
+                            <div class="notif-icon notif-success">
+                              <i class="fa fa-comment"></i>
+                            </div>
+                            <div class="notif-content">
+                              <span class="block">
+                                Rahmad commented on Admin
+                              </span>
+                              <span class="time">12 minutes ago</span>
+                            </div>
+                          </a>
+                          <a href="#">
+                            <div class="notif-img">
+                              <img
+                                src="assets/img/profile2.jpg"
+                                alt="Img Profile"
+                              />
+                            </div>
+                            <div class="notif-content">
+                              <span class="block">
+                                Reza send messages to you
+                              </span>
+                              <span class="time">12 minutes ago</span>
+                            </div>
+                          </a>
+                          <a href="#">
+                            <div class="notif-icon notif-danger">
+                              <i class="fa fa-heart"></i>
+                            </div>
+                            <div class="notif-content">
+                              <span class="block"> Farrah liked Admin </span>
+                              <span class="time">17 minutes ago</span>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </li>
+                    <!-- <li>
+                      <a class="see-all" href="javascript:void(0);"
+                        >See all notifications<i class="fa fa-angle-right"></i>
+                      </a>
+                    </li> -->
+                  </ul>
+                </li>
+              
+
+                <li class="nav-item topbar-user dropdown hidden-caret">
+                  <a
+                    class="dropdown-toggle profile-pic"
+                    data-bs-toggle="dropdown"
+                    href="#"
+                    aria-expanded="false"
+                  >
+                    <div class="avatar-sm">
+                      <img
+                        src="assets/img/profile.jpg"
+                        alt="..."
+                        class="avatar-img rounded-circle"
+                      />
+                    </div>
+                    <span class="profile-username">
+                      <!-- <span class="op-7">,</span> -->
+                      <span class="fw-bold">Rikkih Hendrawan</span>
+                    </span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-user animated fadeIn">
+                    <div class="dropdown-user-scroll scrollbar-outer">
+                      <li>
+                        <div class="user-box">
+                          <div class="avatar-lg">
+                            <img
+                              src="assets/img/profile.jpg"
+                              alt="image profile"
+                              class="avatar-img rounded"
+                            />
+                          </div>
+                          <div class="u-text">
+                            <h4>Rikkih Hendrawan</h4>
+                            <p class="text-muted">Manager</p>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Akun saya</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="#"> <i class="fas fa-sign-out-alt"></i> KELUAR</a>
+                      </li>
+                    </div>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <!-- End Navbar -->
+        </div>
+
+        <div class="container">
+          <div class="page-inner">
+            <div class="page-header">
+              <!-- <h3 class="fw-bold mb-3 ">Buat Laporan Meeting</h3> -->
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="card-title">Form Laporan Meeting</div>
+                  </div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-6 col-lg-8">
+                        <div class="form-group">
+                          <label for="materi">Materi</label>
+                          <input type="text" class="form-control" id="materi" placeholder="Materi meeting" autofocus>
+                        </div>
+                        
+                        <!-- <div class="form-group">
+                          <label for="exampleFormControlSelect2">Audience</label>
+                          <select multiple="" class="form-control" id="exampleFormControlSelect2">
+                            <option>Elis</option>
+                            <option>Risa</option>
+                            <option>Wiwin</option>
+                            <option>Sri</option>
+                            <option>Tri</option>
+                            <option>Ferdi</option>
+                            <option>Untung</option>
+                          </select>
+                        </div> -->
+                        
+                      </div>
+                      <div class="col-md-6 col-lg-4">
+                          <div class="form-group">
+                              <label for="datetime">Tanggal</label>
+                              <input type="date" class="form-control" id="datetime" placeholder="datetime">
+                            </div>
+                      </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 col-lg-12">
+                            <div class="form-group">
+                                <label for="comment">Deskripsi meeting</label>
+                                  <div class="editor-container editor-container_classic-editor" id="editor-container">
+                                    <div class="editor-container__editor"><div id="editor"></div></div>
+                                  </div>
+                                <!-- <textarea class="form-control" id="comment" rows="5"></textarea> -->
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-8">
+                            <div class="form-group">
+                                <label for="comment">Point Meeting</label>
+                                <input type="text" class="form-control" id="materi" placeholder="Poin meeting">
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="form-group">
+                                <label for="datetime">Person In Charge (PIC)</label>
+                                    <select class="form-select form-control" id="defaultSelect">
+                                        <option>=== Pilih PIC ===</option>
+                                        <option>Elis</option>
+                                        <option>Risa</option>
+                                        <option>Wiwin</option>
+                                        <option>Sanci</option>
+                                        <option>Sri</option>
+                                        <option>Tri</option>
+                                        <option>Ferdy</option>
+                                        <option>Untung</option>
+                                    </select>
+                              </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="form-group">
+                                <button class="btn btn-secondary">
+                                    <span class="btn-label">
+                                    <i class="fa fa-plus"></i>
+                                    </span> Tambah poin</button>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="card-action">
+                    <button class="btn btn-success">Simpan</button>
+                    <a class="btn btn-danger" href="laporan-meeting.html">Batal</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Custom template | don't include it in your project! -->
+      <div class="custom-template">
+        <div class="title">Settings</div>
+        <div class="custom-content">
+          <div class="switcher">
+            <div class="switch-block">
+              <h4>Logo Header</h4>
+              <div class="btnSwitch">
+                <button
+                  type="button"
+                  class="selected changeLogoHeaderColor"
+                  data-color="dark"
+                ></button>
+                <button
+                  type="button"
+                  class="changeLogoHeaderColor"
+                  data-color="blue"
+                ></button>
+                <button
+                  type="button"
+                  class="changeLogoHeaderColor"
+                  data-color="purple"
+                ></button>
+                <button
+                  type="button"
+                  class="changeLogoHeaderColor"
+                  data-color="light-blue"
+                ></button>
+                <button
+                  type="button"
+                  class="changeLogoHeaderColor"
+                  data-color="green"
+                ></button>
+                <button
+                  type="button"
+                  class="changeLogoHeaderColor"
+                  data-color="orange"
+                ></button>
+                <button
+                  type="button"
+                  class="changeLogoHeaderColor"
+                  data-color="red"
+                ></button>
+                <button
+                  type="button"
+                  class="changeLogoHeaderColor"
+                  data-color="white"
+                ></button>
+                <br />
+                <button
+                  type="button"
+                  class="changeLogoHeaderColor"
+                  data-color="dark2"
+                ></button>
+                <button
+                  type="button"
+                  class="changeLogoHeaderColor"
+                  data-color="blue2"
+                ></button>
+                <button
+                  type="button"
+                  class="changeLogoHeaderColor"
+                  data-color="purple2"
+                ></button>
+                <button
+                  type="button"
+                  class="changeLogoHeaderColor"
+                  data-color="light-blue2"
+                ></button>
+                <button
+                  type="button"
+                  class="changeLogoHeaderColor"
+                  data-color="green2"
+                ></button>
+                <button
+                  type="button"
+                  class="changeLogoHeaderColor"
+                  data-color="orange2"
+                ></button>
+                <button
+                  type="button"
+                  class="changeLogoHeaderColor"
+                  data-color="red2"
+                ></button>
+              </div>
+            </div>
+            <div class="switch-block">
+              <h4>Navbar Header</h4>
+              <div class="btnSwitch">
+                <button
+                  type="button"
+                  class="changeTopBarColor"
+                  data-color="dark"
+                ></button>
+                <button
+                  type="button"
+                  class="changeTopBarColor"
+                  data-color="blue"
+                ></button>
+                <button
+                  type="button"
+                  class="changeTopBarColor"
+                  data-color="purple"
+                ></button>
+                <button
+                  type="button"
+                  class="changeTopBarColor"
+                  data-color="light-blue"
+                ></button>
+                <button
+                  type="button"
+                  class="changeTopBarColor"
+                  data-color="green"
+                ></button>
+                <button
+                  type="button"
+                  class="changeTopBarColor"
+                  data-color="orange"
+                ></button>
+                <button
+                  type="button"
+                  class="changeTopBarColor"
+                  data-color="red"
+                ></button>
+                <button
+                  type="button"
+                  class="selected changeTopBarColor"
+                  data-color="white"
+                ></button>
+                <br />
+                <button
+                  type="button"
+                  class="changeTopBarColor"
+                  data-color="dark2"
+                ></button>
+                <button
+                  type="button"
+                  class="changeTopBarColor"
+                  data-color="blue2"
+                ></button>
+                <button
+                  type="button"
+                  class="changeTopBarColor"
+                  data-color="purple2"
+                ></button>
+                <button
+                  type="button"
+                  class="changeTopBarColor"
+                  data-color="light-blue2"
+                ></button>
+                <button
+                  type="button"
+                  class="changeTopBarColor"
+                  data-color="green2"
+                ></button>
+                <button
+                  type="button"
+                  class="changeTopBarColor"
+                  data-color="orange2"
+                ></button>
+                <button
+                  type="button"
+                  class="changeTopBarColor"
+                  data-color="red2"
+                ></button>
+              </div>
+            </div>
+            <div class="switch-block">
+              <h4>Sidebar</h4>
+              <div class="btnSwitch">
+                <button
+                  type="button"
+                  class="changeSideBarColor"
+                  data-color="white"
+                ></button>
+                <button
+                  type="button"
+                  class="selected changeSideBarColor"
+                  data-color="dark"
+                ></button>
+                <button
+                  type="button"
+                  class="changeSideBarColor"
+                  data-color="dark2"
+                ></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="custom-toggle">
+          <i class="icon-settings"></i>
+        </div>
+      </div>
+      <!-- End Custom template -->
+    </div>
+    <!--   Core JS Files   -->
+    <script src="assets/js/core/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/core/popper.min.js"></script>
+    <script src="assets/js/core/bootstrap.min.js"></script>
+
+    <!-- jQuery Scrollbar -->
+    <script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+
+    <!-- Chart JS -->
+    <script src="assets/js/plugin/chart.js/chart.min.js"></script>
+
+    <!-- jQuery Sparkline -->
+    <script src="assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- Chart Circle -->
+    <script src="assets/js/plugin/chart-circle/circles.min.js"></script>
+
+    <!-- Datatables -->
+    <script src="assets/js/plugin/datatables/datatables.min.js"></script>
+
+    <!-- Bootstrap Notify -->
+    <script src="assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+    <!-- jQuery Vector Maps -->
+    <script src="assets/js/plugin/jsvectormap/jsvectormap.min.js"></script>
+    <script src="assets/js/plugin/jsvectormap/world.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+
+    <!-- Kaiadmin JS -->
+    <script src="assets/js/kaiadmin.min.js"></script>
+
+    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
+    <script src="assets/js/setting-demo.js"></script>
+    <script src="assets/js/demo.js"></script>
+    <script>
+      $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
+        type: "line",
+        height: "70",
+        width: "100%",
+        lineWidth: "2",
+        lineColor: "#177dff",
+        fillColor: "rgba(23, 125, 255, 0.14)",
+      });
+
+      $("#lineChart2").sparkline([99, 125, 122, 105, 110, 124, 115], {
+        type: "line",
+        height: "70",
+        width: "100%",
+        lineWidth: "2",
+        lineColor: "#f3545d",
+        fillColor: "rgba(243, 84, 93, .14)",
+      });
+
+      $("#lineChart3").sparkline([105, 103, 123, 100, 95, 105, 115], {
+        type: "line",
+        height: "70",
+        width: "100%",
+        lineWidth: "2",
+        lineColor: "#ffa534",
+        fillColor: "rgba(255, 165, 52, .14)",
+      });
+    </script>
+
+
+<!-- CKEDITOR -->
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/47.2.0/ckeditor5.umd.js" crossorigin></script>
+		<script src="https://cdn.ckbox.io/ckbox/2.6.1/ckbox.js" crossorigin></script>
+		<script src="./main.js"></script>
+
+    <script>
+      /**
+       * This configuration was generated using the CKEditor 5 Builder. You can modify it anytime using this link:
+       * https://ckeditor.com/ckeditor-5/builder/?redirect=portal#installation/NoNgNARATAdAHDAjBSiAMVEFYCcOo4AsUaWAzAOwWaKZQkhRxk4U4hbMlqIgoQBTAHYo0YYIjBixkmQF1IaQoQCGIFYQhygA
+       */
+
+      const {
+        ClassicEditor,
+        Autosave,
+        Essentials,
+        Paragraph,
+        LinkImage,
+        Link,
+        ImageBlock,
+        ImageToolbar,
+        BlockQuote,
+        Bold,
+        CKBox,
+        CloudServices,
+        ImageUpload,
+        ImageInsert,
+        ImageInsertViaUrl,
+        AutoImage,
+        PictureEditing,
+        CKBoxImageEdit,
+        TableColumnResize,
+        Table,
+        TableToolbar,
+        Heading,
+        ImageTextAlternative,
+        ImageCaption,
+        ImageResize,
+        ImageStyle,
+        Indent,
+        IndentBlock,
+        ImageInline,
+        Italic,
+        ListProperties,
+        List,
+        MediaEmbed,
+        PasteFromOffice,
+        TableCaption,
+        TableCellProperties,
+        TableProperties,
+        TodoList,
+        Underline,
+        Mention,
+        ImageUtils,
+        ImageEditing
+      } = window.CKEDITOR;
+
+      const LICENSE_KEY =
+        'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NjM2ODMxOTksImp0aSI6ImIwZmY3ZDc4LTNmODctNGZjYy04YmZjLTE0YjViMjM1YzFiMSIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InRyaWFsIiwiZmVhdHVyZXMiOlsiKiJdLCJ2YyI6ImVjODUwYmQ1In0.t6vw_QYvKKIUz-4ZvAzo1-ojX9Jull05B4Ki4aAebhXqhTg5zZDhs_HKJGYyITQ_ulnnW3iWnMQN5YEA4Voetw';
+
+      const CLOUD_SERVICES_TOKEN_URL =
+        'https://fhfuqox7ul2d.cke-cs.com/token/dev/6de5cbc05cf1aa3b53ddeb8da01e4c3695594f9ab1fb11442401359e55bb?limit=10';
+
+      const editorConfig = {
+        toolbar: {
+          items: [
+            'undo',
+            'redo',
+            '|',
+            'heading',
+            '|',
+            'bold',
+            'italic',
+            'underline',
+            '|',
+            'link',
+            'insertImage',
+            'ckbox',
+            'mediaEmbed',
+            'insertTable',
+            'blockQuote',
+            '|',
+            'bulletedList',
+            'numberedList',
+            'todoList',
+            'outdent',
+            'indent'
+          ],
+          shouldNotGroupWhenFull: false
+        },
+        plugins: [
+          AutoImage,
+          Autosave,
+          BlockQuote,
+          Bold,
+          CKBox,
+          CKBoxImageEdit,
+          CloudServices,
+          Essentials,
+          Heading,
+          ImageBlock,
+          ImageCaption,
+          ImageEditing,
+          ImageInline,
+          ImageInsert,
+          ImageInsertViaUrl,
+          ImageResize,
+          ImageStyle,
+          ImageTextAlternative,
+          ImageToolbar,
+          ImageUpload,
+          ImageUtils,
+          Indent,
+          IndentBlock,
+          Italic,
+          Link,
+          LinkImage,
+          List,
+          ListProperties,
+          MediaEmbed,
+          Mention,
+          Paragraph,
+          PasteFromOffice,
+          PictureEditing,
+          Table,
+          TableCaption,
+          TableCellProperties,
+          TableColumnResize,
+          TableProperties,
+          TableToolbar,
+          TodoList,
+          Underline
+        ],
+        cloudServices: {
+          tokenUrl: CLOUD_SERVICES_TOKEN_URL
+        },
+        heading: {
+          options: [
+            {
+              model: 'paragraph',
+              title: 'Paragraph',
+              class: 'ck-heading_paragraph'
+            },
+            {
+              model: 'heading1',
+              view: 'h1',
+              title: 'Heading 1',
+              class: 'ck-heading_heading1'
+            },
+            {
+              model: 'heading2',
+              view: 'h2',
+              title: 'Heading 2',
+              class: 'ck-heading_heading2'
+            },
+            {
+              model: 'heading3',
+              view: 'h3',
+              title: 'Heading 3',
+              class: 'ck-heading_heading3'
+            },
+            {
+              model: 'heading4',
+              view: 'h4',
+              title: 'Heading 4',
+              class: 'ck-heading_heading4'
+            },
+            {
+              model: 'heading5',
+              view: 'h5',
+              title: 'Heading 5',
+              class: 'ck-heading_heading5'
+            },
+            {
+              model: 'heading6',
+              view: 'h6',
+              title: 'Heading 6',
+              class: 'ck-heading_heading6'
+            }
+          ]
+        },
+        image: {
+          toolbar: [
+            'toggleImageCaption',
+            'imageTextAlternative',
+            '|',
+            'imageStyle:inline',
+            'imageStyle:wrapText',
+            'imageStyle:breakText',
+            '|',
+            'resizeImage',
+            '|',
+            'ckboxImageEdit'
+          ]
+        },
+        initialData:
+          '<h2>Congratulations on setting up CKEditor 5! 🎉</h2>\n<p>\n\tYou\'ve successfully created a CKEditor 5 project. This powerful text editor\n\twill enhance your application, enabling rich text editing capabilities that\n\tare customizable and easy to use.\n</p>\n<h3>What\'s next?</h3>\n<ol>\n\t<li>\n\t\t<strong>Integrate into your app</strong>: time to bring the editing into\n\t\tyour application. Take the code you created and add to your application.\n\t</li>\n\t<li>\n\t\t<strong>Explore features:</strong> Experiment with different plugins and\n\t\ttoolbar options to discover what works best for your needs.\n\t</li>\n\t<li>\n\t\t<strong>Customize your editor:</strong> Tailor the editor\'s\n\t\tconfiguration to match your application\'s style and requirements. Or\n\t\teven write your plugin!\n\t</li>\n</ol>\n<p>\n\tKeep experimenting, and don\'t hesitate to push the boundaries of what you\n\tcan achieve with CKEditor 5. Your feedback is invaluable to us as we strive\n\tto improve and evolve. Happy editing!\n</p>\n<h3>Helpful resources</h3>\n<ul>\n\t<li>📝 <a href="https://portal.ckeditor.com/checkout?plan=free">Trial sign up</a>,</li>\n\t<li>📕 <a href="https://ckeditor.com/docs/ckeditor5/latest/installation/index.html">Documentation</a>,</li>\n\t<li>⭐️ <a href="https://github.com/ckeditor/ckeditor5">GitHub</a> (star us if you can!),</li>\n\t<li>🏠 <a href="https://ckeditor.com">CKEditor Homepage</a>,</li>\n\t<li>🧑‍💻 <a href="https://ckeditor.com/ckeditor-5/demo/">CKEditor 5 Demos</a>,</li>\n</ul>\n<h3>Need help?</h3>\n<p>\n\tSee this text, but the editor is not starting up? Check the browser\'s\n\tconsole for clues and guidance. It may be related to an incorrect license\n\tkey if you use premium features or another feature-related requirement. If\n\tyou cannot make it work, file a GitHub issue, and we will help as soon as\n\tpossible!\n</p>\n',
+        licenseKey: LICENSE_KEY,
+        link: {
+          addTargetToExternalLinks: true,
+          defaultProtocol: 'https://',
+          decorators: {
+            toggleDownloadable: {
+              mode: 'manual',
+              label: 'Downloadable',
+              attributes: {
+                download: 'file'
+              }
+            }
+          }
+        },
+        list: {
+          properties: {
+            styles: true,
+            startIndex: true,
+            reversed: true
+          }
+        },
+        mention: {
+          feeds: [
+            {
+              marker: '@',
+              feed: [
+                /* See: https://ckeditor.com/docs/ckeditor5/latest/features/mentions.html */
+              ]
+            }
+          ]
+        },
+        placeholder: 'Type or paste your content here!',
+        table: {
+          contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells', 'tableProperties', 'tableCellProperties']
+        }
+      };
+
+      configUpdateAlert(editorConfig);
+
+      ClassicEditor.create(document.querySelector('#editor'), editorConfig);
+
+      /**
+       * This function exists to remind you to update the config needed for premium features.
+       * The function can be safely removed. Make sure to also remove call to this function when doing so.
+       */
+      function configUpdateAlert(config) {
+        if (configUpdateAlert.configUpdateAlertShown) {
+          return;
+        }
+
+        const isModifiedByUser = (currentValue, forbiddenValue) => {
+          if (currentValue === forbiddenValue) {
+            return false;
+          }
+
+          if (currentValue === undefined) {
+            return false;
+          }
+
+          return true;
+        };
+
+        const valuesToUpdate = [];
+
+        configUpdateAlert.configUpdateAlertShown = true;
+
+        if (!isModifiedByUser(config.licenseKey, '<YOUR_LICENSE_KEY>')) {
+          valuesToUpdate.push('LICENSE_KEY');
+        }
+
+        if (!isModifiedByUser(config.cloudServices?.tokenUrl, '<YOUR_CLOUD_SERVICES_TOKEN_URL>')) {
+          valuesToUpdate.push('CLOUD_SERVICES_TOKEN_URL');
+        }
+
+        if (valuesToUpdate.length) {
+          window.alert(
+            [
+              'Please update the following values in your editor config',
+              'to receive full access to Premium Features:',
+              '',
+              ...valuesToUpdate.map(value => ` - ${value}`)
+            ].join('\n')
+          );
+        }
+      }
+
+    </script>
+  </body>
+</html>

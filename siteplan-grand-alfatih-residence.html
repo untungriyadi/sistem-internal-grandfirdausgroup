@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Siteplan Tracer / SVG Editor — Grand Alfatih</title>
+<style>
+  :root{
+    --panel:#fff; --accent:#185f63; --ok:#2ecc71;
+    --available: #ffeb3b; --booking:#ffb74d; --sold:#cfd8dc;
+  }
+  body{margin:0;font-family:system-ui,Arial;background:#f2f6f8;color:#123}
+  .wrap{display:flex;gap:12px;height:100vh;padding:12px}
+  .left{flex:1;background:#fff;border-radius:10px;padding:10px;box-shadow:0 8px 24px rgba(10,30,60,0.06);display:flex;flex-direction:column}
+  .toolbar{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+  button,select,input[type="file"]{padding:8px 10px;border-radius:8px;border:1px solid #dfe9ef;background:#fff;cursor:pointer}
+  button.primary{background:var(--accent);color:#fff;border-color:transparent}
+  .canvasWrap{flex:1;overflow:auto;border:1px dashed #e6eef3;border-radius:8px;padding:6px;background:linear-gradient(#fff,#fbfdff)}
+  svg{display:block;max-width:1800px;width:100%;height:auto;background:#fff}
+  /* selection handles */
+  .handle{fill:#fff;stroke:#333;stroke-width:1;cursor:pointer}
+  /* side panel */
+  aside.panel{width:380px;min-width:280px;background:#fff;border-radius:10px;padding:12px;box-shadow:0 8px 24px rgba(10,30,60,0.06)}
+  .panel h3{margin:0 0 8px 0;color:var(--accent)}
+  .prop{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+  .prop label{width:78px;font-size:13px;color:#333}
+  input[type="text"],select,input[type="number"]{flex:1;padding:8px;border-radius:6px;border:1px solid #e6eef7}
+  .list{max-height:46vh;overflow:auto;padding:6px;border-radius:8px;background:#fbfdff;border:1px solid #f0f6f8}
+  .lot-item{padding:6px;border-bottom:1px dashed #eef4f7;display:flex;justify-content:space-between;align-items:center;font-size:13px}
+  .lot-item:last-child{border-bottom:0}
+  .status-dot{width:12px;height:12px;border-radius:3px;display:inline-block;margin-right:8px}
+  .controls{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  textarea{width:100%;height:120px;border-radius:8px;padding:8px;border:1px solid #e6eef7}
+  footer{font-size:12px;color:#666;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="left">
+    <div class="toolbar">
+      <input id="imgInput" type="file" accept="image/*" />
+      <button id="btnDraw" class="primary">Draw Lot (Drag)</button>
+      <button id="btnSelect">Select / Move</button>
+      <button id="btnDelete">Hapus Lot</button>
+      <button id="btnClear">Bersihkan Semua</button>
+      <div style="margin-left:auto;display:flex;gap:6px">
+        <button id="exportSvg">Export SVG</button>
+        <button id="exportJson">Export JSON</button>
+      </div>
+    </div>
+
+    <div class="canvasWrap" id="canvasWrap" tabindex="0">
+      <!-- SVG canvas with image background -->
+      <svg id="editorSvg" viewBox="0 0 1200 1600" xmlns="http://www.w3.org/2000/svg" style="touch-action:none">
+        <!-- background image will be inserted here -->
+        <defs>
+          <style>.lot-rect{fill:var(--available);stroke:#c0a800;stroke-width:1.6;rx:4;ry:4}.lot-text{font-size:14px;font-weight:700;fill:#222;pointer-events:none}</style>
+        </defs>
+        <rect width="100%" height="100%" fill="#fff" />
+        <!-- groups: bg image + lots -->
+        <g id="bgLayer"></g>
+        <g id="lotsLayer"></g>
+        <g id="uiLayer"></g>
+      </svg>
+    </div>
+  </div>
+
+  <aside class="panel">
+    <h3>Properties & Daftar Lot</h3>
+
+    <div class="prop"><label>Mode</label>
+      <select id="mode">
+        <option value="draw">Draw</option>
+        <option value="select">Select</option>
+      </select>
+    </div>
+
+    <div class="prop"><label>Block</label><input id="inpBlock" type="text" placeholder="Contoh: C1" /></div>
+    <div class="prop"><label>Number</label><input id="inpNumber" type="text" placeholder="Contoh: 1" /></div>
+    <div class="prop"><label>Status</label>
+      <select id="inpStatus">
+        <option value="available">Tersedia</option>
+        <option value="booking">Booking</option>
+        <option value="sold">Terjual</option>
+      </select>
+    </div>
+
+    <div class="controls">
+      <button id="applyProps">Apply ke Selected</button>
+      <button id="zoomFit">Fit Image</button>
+      <button id="importJsonBtn">Import JSON</button>
+      <button id="importSvgBtn">Import SVG</button>
+    </div>
+
+    <h4 style="margin-top:12px;margin-bottom:6px">Daftar Lot (klik untuk pilih)</h4>
+    <div class="list" id="lotList">
+      <div style="color:#666;font-size:13px">Belum ada lot. Gunakan tombol Draw lalu drag di canvas untuk membuat lot.</div>
+    </div>
+
+    <h4 style="margin-top:12px">Export / Import</h4>
+    <div style="display:flex;gap:8px;margin-bottom:6px">
+      <button id="downloadSvgFile">Download .svg</button>
+      <button id="downloadJsonFile">Download .json</button>
+    </div>
+    <textarea id="exportArea" placeholder="Hasil export (JSON / SVG) akan tampil di sini"></textarea>
+    <footer>Tip: Setelah tracing selesai, gunakan Export SVG untuk langsung pakai di website: setiap &lt;g class="lot"&gt; mengandung atribut data-block dan data-number sehingga jadi klik-able.</footer>
+  </aside>
+</div>
+
+<script>
+/* Siteplan Tracer / SVG editor
+ - load background image (file input)
+ - draw rectangles by dragging (Draw mode)
+ - select and move/resize rectangles (Select mode)
+ - set properties (block, number, status)
+ - export as SVG string or JSON array of lots
+*/
+const svg = document.getElementById('editorSvg');
+const bgLayer = document.getElementById('bgLayer');
+const lotsLayer = document.getElementById('lotsLayer');
+const uiLayer = document.getElementById('uiLayer');
+const modeSelect = document.getElementById('mode');
+const imgInput = document.getElementById('imgInput');
+const canvasWrap = document.getElementById('canvasWrap');
+const btnDraw = document.getElementById('btnDraw');
+const btnSelect = document.getElementById('btnSelect');
+const btnDelete = document.getElementById('btnDelete');
+const btnClear = document.getElementById('btnClear');
+const exportSvgBtn = document.getElementById('exportSvg');
+const exportJsonBtn = document.getElementById('exportJson');
+const downloadSvgFile = document.getElementById('downloadSvgFile');
+const downloadJsonFile = document.getElementById('downloadJsonFile');
+const exportArea = document.getElementById('exportArea');
+const inpBlock = document.getElementById('inpBlock');
+const inpNumber = document.getElementById('inpNumber');
+const inpStatus = document.getElementById('inpStatus');
+const applyProps = document.getElementById('applyProps');
+const lotList = document.getElementById('lotList');
+const btnImportJson = document.getElementById('importJsonBtn');
+const btnImportSvg = document.getElementById('importSvgBtn');
+const zoomFit = document.getElementById('zoomFit');
+
+let bgImageElement = null;
+let isDrawing = false;
+let startPt = null;
+let tempRect = null;
+let tempText = null;
+let currentMode = 'draw';
+let selectedLot = null;
+let lots = []; // array of {id, block, number, status, x,y,w,h, g}
+
+function svgPoint(clientX, clientY){
+  const pt = svg.createSVGPoint();
+  pt.x = clientX; pt.y = clientY;
+  const inv = svg.getScreenCTM().inverse();
+  return pt.matrixTransform(inv);
+}
+
+imgInput.addEventListener('change', (e)=>{
+  const file = e.target.files[0];
+  if(!file) return;
+  const url = URL.createObjectURL(file);
+  loadBackgroundImage(url);
+});
+
+function loadBackgroundImage(url){
+  bgLayer.innerHTML = '';
+  const img = document.createElementNS('http://www.w3.org/2000/svg','image');
+  img.setAttributeNS('http://www.w3.org/1999/xlink','href', url);
+  // fit image to viewBox scale — we keep viewBox size 1200x1600; adjust image width proportionally
+  img.setAttribute('x', 0);
+  img.setAttribute('y', 0);
+  img.setAttribute('width', 1200);
+  img.setAttribute('height', 1600);
+  img.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+  bgLayer.appendChild(img);
+  bgImageElement = img;
+}
+
+// drawing logic
+svg.addEventListener('mousedown', (e)=>{
+  if(currentMode !== 'draw') return;
+  if(e.button !== 0) return;
+  isDrawing = true;
+  startPt = svgPoint(e.clientX, e.clientY);
+  // create temporary rect
+  tempRect = document.createElementNS('http://www.w3.org/2000/svg','rect');
+  tempRect.setAttribute('x', startPt.x);
+  tempRect.setAttribute('y', startPt.y);
+  tempRect.setAttribute('width', 1);
+  tempRect.setAttribute('height', 1);
+  tempRect.setAttribute('class','lot-rect');
+  tempRect.setAttribute('opacity','0.85');
+  uiLayer.appendChild(tempRect);
+  // label placeholder
+  tempText = document.createElementNS('http://www.w3.org/2000/svg','text');
+  tempText.setAttribute('x', startPt.x + 6);
+  tempText.setAttribute('y', startPt.y + 18);
+  tempText.setAttribute('class','lot-text');
+  tempText.textContent = '...';
+  uiLayer.appendChild(tempText);
+});
+
+svg.addEventListener('mousemove', (e)=>{
+  if(!isDrawing) return;
+  const p = svgPoint(e.clientX, e.clientY);
+  const x = Math.min(p.x, startPt.x);
+  const y = Math.min(p.y, startPt.y);
+  const w = Math.abs(p.x - startPt.x);
+  const h = Math.abs(p.y - startPt.y);
+  tempRect.setAttribute('x', x);
+  tempRect.setAttribute('y', y);
+  tempRect.setAttribute('width', Math.max(2,w));
+  tempRect.setAttribute('height', Math.max(2,h));
+  tempText.setAttribute('x', x + 6);
+  tempText.setAttribute('y', y + 18);
+});
+
+svg.addEventListener('mouseup', (e)=>{
+  if(!isDrawing) return;
+  isDrawing = false;
+  // finalize rectangle into lotsLayer
+  const x = parseFloat(tempRect.getAttribute('x'));
+  const y = parseFloat(tempRect.getAttribute('y'));
+  const w = parseFloat(tempRect.getAttribute('width'));
+  const h = parseFloat(tempRect.getAttribute('height'));
+  // minimum size check
+  if(w < 6 || h < 6){
+    uiLayer.innerHTML = '';
+    tempRect = null; tempText = null;
+    return;
+  }
+  uiLayer.innerHTML = '';
+  createLot({
+    block: inpBlock.value || 'X',
+    number: inpNumber.value || (lots.length + 1),
+    status: inpStatus.value || 'available',
+    x: Math.round(x),
+    y: Math.round(y),
+    w: Math.round(w),
+    h: Math.round(h)
+  });
+  tempRect = null; tempText = null;
+  refreshList();
+});
+
+function createLot({block, number, status='available', x,y,w,h}){
+  const ns = 'http://www.w3.org/2000/svg';
+  const g = document.createElementNS(ns,'g');
+  const id = 'lot_' + Date.now() + '_' + Math.floor(Math.random()*9999);
+  g.setAttribute('data-id', id);
+  g.setAttribute('data-block', block);
+  g.setAttribute('data-number', String(number));
+  g.setAttribute('data-status', status);
+  g.classList.add('lot-g');
+
+  const rect = document.createElementNS(ns,'rect');
+  rect.setAttribute('x', x);
+  rect.setAttribute('y', y);
+  rect.setAttribute('width', w);
+  rect.setAttribute('height', h);
+  rect.setAttribute('class','lot-rect');
+  rect.setAttribute('fill', status === 'available' ? 'var(--available)' : (status==='booking' ? 'var(--booking)' : 'var(--sold)'));
+  rect.setAttribute('stroke','#c0a800');
+  rect.setAttribute('stroke-width','1.6');
+  rect.style.cursor = 'pointer';
+
+  const txt = document.createElementNS(ns,'text');
+  txt.setAttribute('x', x + w/2);
+  txt.setAttribute('y', y + h/2 + 6);
+  txt.setAttribute('text-anchor','middle');
+  txt.setAttribute('class','lot-text');
+  txt.textContent = String(number);
+
+  g.appendChild(rect);
+  g.appendChild(txt);
+  lotsLayer.appendChild(g);
+
+  // interaction: click to select
+  g.addEventListener('click', (ev)=>{
+    ev.stopPropagation();
+    selectLot(g);
+  });
+  g.addEventListener('dblclick', (ev)=>{
+    ev.stopPropagation();
+    // quick edit: swap status
+    const s = g.getAttribute('data-status') === 'available' ? 'booking' : (g.getAttribute('data-status') === 'booking' ? 'sold' : 'available');
+    setLotStatus(g, s);
+    refreshList();
+  });
+
+  // store in list
+  lots.push({id, g, block, number, status, x,y,w,h});
+}
+
+// selection
+function selectLot(g){
+  clearSelectionUI();
+  selectedLot = g;
+  // highlight by stroke thicker + small handles
+  const rect = g.querySelector('rect');
+  rect.setAttribute('stroke','#333');
+  rect.setAttribute('stroke-width','2.4');
+  // create handles
+  const bbox = rect.getBBox();
+  const handles = [
+    {cx:bbox.x, cy:bbox.y}, {cx:bbox.x+bbox.width, cy:bbox.y},
+    {cx:bbox.x, cy:bbox.y+bbox.height}, {cx:bbox.x+bbox.width, cy:bbox.y+bbox.height}
+  ];
+  handles.forEach((h,idx)=>{
+    const c = document.createElementNS('http://www.w3.org/2000/svg','rect');
+    c.setAttribute('x', h.cx - 6); c.setAttribute('y', h.cy - 6); c.setAttribute('width',12); c.setAttribute('height',12);
+    c.setAttribute('class','handle');
+    c.setAttribute('data-h', idx);
+    uiLayer.appendChild(c);
+    // dragging handles to resize
+    makeHandleDraggable(c, g);
+  });
+  // populate properties panel
+  inpBlock.value = g.getAttribute('data-block');
+  inpNumber.value = g.getAttribute('data-number');
+  inpStatus.value = g.getAttribute('data-status');
+}
+
+function clearSelectionUI(){
+  // restore strokes
+  lots.forEach(l=>{
+    try{
+      l.g.querySelector('rect').setAttribute('stroke','#c0a800'); l.g.querySelector('rect').setAttribute('stroke-width','1.6');
+    }catch(e){}
+  });
+  selectedLot = null;
+  uiLayer.innerHTML = '';
+}
+
+function makeHandleDraggable(handleEl, groupEl){
+  let dragging = false;
+  let start = null;
+  handleEl.addEventListener('mousedown', (ev)=>{
+    ev.stopPropagation(); ev.preventDefault();
+    dragging = true;
+    start = svgPoint(ev.clientX, ev.clientY);
+  });
+  window.addEventListener('mousemove', (ev)=>{
+    if(!dragging) return;
+    const p = svgPoint(ev.clientX, ev.clientY);
+    const dx = p.x - start.x, dy = p.y - start.y;
+    const rect = groupEl.querySelector('rect');
+    const x = parseFloat(rect.getAttribute('x'));
+    const y = parseFloat(rect.getAttribute('y'));
+    const w = parseFloat(rect.getAttribute('width'));
+    const h = parseFloat(rect.getAttribute('height'));
+    const hIdx = parseInt(handleEl.getAttribute('data-h'));
+    let nx=x, ny=y, nw=w, nh=h;
+    if(hIdx===0){ nx = x + dx; ny = y + dy; nw = w - dx; nh = h - dy; }
+    if(hIdx===1){ ny = y + dy; nw = w + dx; nh = h - dy; }
+    if(hIdx===2){ nx = x + dx; nw = w - dx; nh = h + dy; }
+    if(hIdx===3){ nw = w + dx; nh = h + dy; }
+    if(nw < 6 || nh < 6) return;
+    rect.setAttribute('x', nx); rect.setAttribute('y', ny); rect.setAttribute('width', nw); rect.setAttribute('height', nh);
+    const txt = groupEl.querySelector('text');
+    txt.setAttribute('x', nx + nw/2); txt.setAttribute('y', ny + nh/2 + 6);
+    start = p;
+    // update stored lot
+    const id = groupEl.getAttribute('data-id');
+    const entry = lots.find(it=> it.id === id);
+    if(entry){ entry.x = Math.round(nx); entry.y = Math.round(ny); entry.w = Math.round(nw); entry.h = Math.round(nh); }
+    // refresh UI handles positions
+    uiLayer.innerHTML=''; selectLot(groupEl);
+  });
+  window.addEventListener('mouseup', ()=>{ dragging = false; });
+}
+
+// click canvas to deselect
+svg.addEventListener('click', (e)=>{
+  if(currentMode === 'draw') return;
+  clearSelectionUI();
+});
+
+// keyboard delete
+document.addEventListener('keydown', (e)=>{
+  if(e.key === 'Delete' || e.key === 'Backspace'){ if(selectedLot){ deleteSelected(); } }
+});
+
+// buttons
+btnDraw.addEventListener('click', ()=> { currentMode='draw'; modeSelect.value='draw'; btnDraw.classList.add('primary'); btnSelect.classList.remove('primary'); });
+btnSelect.addEventListener('click', ()=> { currentMode='select'; modeSelect.value='select'; btnSelect.classList.add('primary'); btnDraw.classList.remove('primary'); });
+modeSelect.addEventListener('change', (e)=>{ currentMode = e.target.value; if(currentMode==='draw'){ btnDraw.classList.add('primary'); btnSelect.classList.remove('primary'); } else { btnSelect.classList.add('primary'); btnDraw.classList.remove('primary'); } });
+
+btnDelete.addEventListener('click', deleteSelected);
+btnClear.addEventListener('click', ()=>{
+  if(!confirm('Hapus semua lot yang sudah dibuat?')) return;
+  lots = []; lotsLayer.innerHTML=''; uiLayer.innerHTML=''; refreshList(); exportArea.value='';
+});
+
+function deleteSelected(){
+  if(!selectedLot){ alert('Pilih lot terlebih dahulu.'); return; }
+  const id = selectedLot.getAttribute('data-id');
+  lots = lots.filter(l=> l.id !== id);
+  selectedLot.remove();
+  uiLayer.innerHTML=''; selectedLot = null;
+  refreshList();
+}
+
+// apply properties to selected lot
+applyProps.addEventListener('click', ()=>{
+  if(!selectedLot){ alert('Pilih lot dahulu.'); return; }
+  const id = selectedLot.getAttribute('data-id');
+  const ent = lots.find(l=> l.id === id);
+  if(!ent) return;
+  const block = inpBlock.value || ent.block;
+  const number = inpNumber.value || ent.number;
+  const status = inpStatus.value || ent.status;
+  selectedLot.setAttribute('data-block', block);
+  selectedLot.setAttribute('data-number', number);
+  selectedLot.setAttribute('data-status', status);
+  selectedLot.querySelector('text').textContent = String(number);
+  setLotStatus(selectedLot, status);
+  // update stored
+  ent.block = block; ent.number = number; ent.status = status;
+  refreshList();
+});
+
+// set status helper
+function setLotStatus(g, status){
+  g.setAttribute('data-status', status);
+  const rect = g.querySelector('rect');
+  rect.setAttribute('fill', status === 'available' ? 'var(--available)' : (status==='booking' ? 'var(--booking)' : 'var(--sold)'));
+  // update in lots array
+  const id = g.getAttribute('data-id');
+  const ent = lots.find(l=> l.id === id);
+  if(ent) ent.status = status;
+}
+
+// refresh side list
+function refreshList(){
+  if(lots.length === 0){
+    lotList.innerHTML = '<div style="color:#666;font-size:13px">Belum ada lot. Gunakan tombol Draw lalu drag di canvas untuk membuat lot.</div>';
+    return;
+  }
+  lotList.innerHTML = '';
+  lots.forEach(l=>{
+    const div = document.createElement('div');
+    div.className = 'lot-item';
+    const left = document.createElement('div');
+    const dot = document.createElement('span'); dot.className='status-dot'; dot.style.background = l.status === 'available' ? 'var(--available)' : (l.status==='booking' ? 'var(--booking)' : 'var(--sold)');
+    left.appendChild(dot);
+    left.appendChild(document.createTextNode(` ${l.block} - ${l.number}`));
+    const right = document.createElement('div');
+    const btn = document.createElement('button'); btn.textContent = 'Pilih'; btn.style.padding='6px 8px';
+    btn.addEventListener('click', ()=> {
+      const g = l.g;
+      selectLot(g);
+    });
+    right.appendChild(btn);
+    div.appendChild(left); div.appendChild(right);
+    lotList.appendChild(div);
+  });
+}
+
+// export functions
+exportSvgBtn.addEventListener('click', ()=>{
+  // Assemble minimal SVG: include bg image (as dataURL) and all lots as <g data-block...>
+  const serializer = new XMLSerializer();
+  // clone svg
+  const clone = svg.cloneNode(true);
+  // convert background image href to dataURL if loaded from local object URL? (we keep href as-is; if user wants embedded, they can do more)
+  const svgStr = serializer.serializeToString(clone);
+  exportArea.value = svgStr;
+  alert('SVG string diisi di textarea — kamu bisa salin & simpan sebagai file .svg');
+});
+downloadSvgFile.addEventListener('click', ()=>{
+  const serializer = new XMLSerializer();
+  const clone = svg.cloneNode(true);
+  const svgStr = serializer.serializeToString(clone);
+  const blob = new Blob([svgStr], {type:'image/svg+xml'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = 'siteplan_traced.svg'; a.click(); URL.revokeObjectURL(url);
+});
+
+// export JSON: lots array with positions and metadata
+exportJsonBtn.addEventListener('click', ()=>{
+  const out = lots.map(l=>{
+    // ensure numeric fields
+    const rect = l.g.querySelector('rect');
+    return {
+      id: l.id,
+      block: l.g.getAttribute('data-block'),
+      number: l.g.getAttribute('data-number'),
+      status: l.g.getAttribute('data-status'),
+      x: parseFloat(rect.getAttribute('x')),
+      y: parseFloat(rect.getAttribute('y')),
+      w: parseFloat(rect.getAttribute('width')),
+      h: parseFloat(rect.getAttribute('height'))
+    };
+  });
+  const json = JSON.stringify(out, null, 2);
+  exportArea.value = json;
+  alert('JSON hasil tracing diisi di textarea. Gunakan Download JSON untuk menyimpan.');
+});
+downloadJsonFile.addEventListener('click', ()=>{
+  const txt = exportArea.value || JSON.stringify(lots.map(l=> ({
+    id: l.id, block: l.block, number: l.number, status: l.status,
+    x: l.x, y: l.y, w: l.w, h: l.h
+  })), null, 2);
+  const blob = new Blob([txt], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = 'siteplan_lots.json'; a.click(); URL.revokeObjectURL(url);
+});
+
+// import json
+btnImportJson.addEventListener('click', ()=>{
+  const txt = exportArea.value.trim();
+  if(!txt){ alert('Paste JSON di textarea lalu klik Import JSON'); return; }
+  try{
+    const arr = JSON.parse(txt);
+    // clear current
+    lots = []; lotsLayer.innerHTML=''; uiLayer.innerHTML='';
+    arr.forEach(it=>{
+      createLot({
+        block: it.block || it.blok || 'X',
+        number: it.number || it.nomor || it.num || '',
+        status: it.status || 'available',
+        x: it.x || it.left || 0,
+        y: it.y || it.top || 0,
+        w: it.w || it.width || 30,
+        h: it.h || it.height || 30
+      });
+    });
+    refreshList();
+    alert('Import JSON selesai.');
+  }catch(e){ alert('JSON tidak valid: ' + e.message); }
+});
+
+// import SVG by pasting SVG string into textarea
+btnImportSvg.addEventListener('click', ()=>{
+  const txt = exportArea.value.trim();
+  if(!txt){ alert('Paste SVG string di textarea lalu klik Import SVG'); return; }
+  try{
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(txt,'image/svg+xml');
+    // find <g class="lot-g"> or elements with data-block attributes
+    const nodes = Array.from(doc.querySelectorAll('[data-block]'));
+    if(nodes.length===0){ alert('SVG tidak mengandung elemen dengan atribut data-block. Pastikan format export sesuai.'); return; }
+    lots = []; lotsLayer.innerHTML=''; uiLayer.innerHTML='';
+    nodes.forEach(n=>{
+      const rect = n.querySelector('rect');
+      if(!rect) return;
+      createLot({
+        block: n.getAttribute('data-block') || 'X',
+        number: n.getAttribute('data-number') || '',
+        status: n.getAttribute('data-status') || 'available',
+        x: parseFloat(rect.getAttribute('x')||0),
+        y: parseFloat(rect.getAttribute('y')||0),
+        w: parseFloat(rect.getAttribute('width')||20),
+        h: parseFloat(rect.getAttribute('height')||20)
+      });
+    });
+    refreshList();
+    alert('Import SVG selesai.');
+  }catch(e){ alert('SVG parse error: ' + e.message); }
+});
+
+// zoomFit: scroll canvas to make image visible
+zoomFit.addEventListener('click', ()=>{
+  canvasWrap.scrollTo({left:0,top:0,behavior:'smooth'});
+  // optionally adjust viewBox to image size - currently we fixed 1200x1600
+});
+
+// initial state: set draw mode
+btnDraw.classList.add('primary');
+modeSelect.value = 'draw';
+currentMode = 'draw';
+
+</script>
+</body>
+</html>

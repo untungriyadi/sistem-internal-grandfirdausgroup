@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siteplan Grand Firdaus Argasunya</title>
+  <style>
+    body {
+      background: #f5f5f5;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    svg {
+      width: 90%;
+      height: auto;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      background: white;
+    }
+
+    .house {
+      cursor: pointer;
+      stroke: #333;
+      stroke-width: 1;
+      transition: all 0.3s ease;
+    }
+
+    .available { fill: #7ed957; } /* hijau - tersedia */
+    .booked { fill: #ffde59; } /* kuning - booking */
+    .sold { fill: #ff5757; } /* merah - terjual */
+
+    .house:hover {
+      opacity: 0.8;
+      stroke-width: 2;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ganti isi SVG di bawah dengan isi dari file Screenshot 2025-11-07 151609.svg -->
+  <!-- Saya sisakan contoh struktur agar kamu tahu formatnya -->
+  <svg viewBox="0 0 1200 800">
+    <!-- Contoh beberapa rumah -->
+    <rect id="A1-01" class="house available" x="100" y="100" width="60" height="40"></rect>
+    <rect id="A1-02" class="house sold" x="170" y="100" width="60" height="40"></rect>
+    <rect id="A1-03" class="house booked" x="240" y="100" width="60" height="40"></rect>
+    <rect id="A1-04" class="house available" x="310" y="100" width="60" height="40"></rect>
+    <!-- Tambahkan semua path/rect dari SVG aslimu di sini -->
+  </svg>
+
+  <script>
+    // Ambil semua rumah
+    const houses = document.querySelectorAll('.house');
+
+    houses.forEach(house => {
+      house.addEventListener('click', () => {
+        const id = house.id; // contoh: A1-05
+        const [blok, nomor] = id.split('-');
+        let status = 'Tersedia';
+
+        if (house.classList.contains('sold')) status = 'Terjual';
+        else if (house.classList.contains('booked')) status = 'Booking';
+
+        alert(`🏠 Blok: ${blok}\nNomor: ${nomor}\nStatus: ${status}`);
+      });
+    });
+  </script>
+
+</body>
+</html>
