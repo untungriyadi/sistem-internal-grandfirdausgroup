@@ -34,10 +34,41 @@
 
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link rel="stylesheet" href="assets/css/demo.css" />
+
+  <style>
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+      background: #2A7B9B;
+      background: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+    }
+  </style>
 </head>
 
 <body>
   <div class="wrapper">
+    <div class="row">
+      <div class="col-md-4 ms-auto me-auto">
+        <div class="card card-post card-round px-4 py-5" style="margin-top: 25%;">
+          <div class="card-body text-center">
+            <img src="https://grandfirdausgroup.com/images/logo.png" alt="" style="width: 7rem;" class="mb-4">
+            <!-- <p class="text-center">Selamat datang</p> -->
+            <h1 class="fw-bolder text-center mb-5" style="font-size: 24px;">Sistem Internal Grand Firdaus Group</h1>
+
+            <div class="form-group mb-4" style="text-align: left;padding: 0;">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="username" placeholder="Masukkan username" autofocus>
+            </div>
+            <div class="form-group mb-4" style="text-align: left;padding: 0;">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Password">
+            </div>
+            <button class="btn btn-primary w-100">Masuk</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </div>
   <!--   Core JS Files   -->
