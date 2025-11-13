@@ -64,7 +64,7 @@
         <div class="sidebar-content">
           <ul class="nav nav-secondary">
             <li class="nav-item active">
-              <a data-bs-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
+              <a href="index.html">
                 <i class="fas fa-home"></i>
                 <p>Dashboard</p>
               </a>
@@ -285,49 +285,80 @@
         <div class="page-inner">
           <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
             <div>
-              <h3 class="fw-bold mb-3">Halaman Siteplan Perumahan Grand Firdaus Group</h3>
-              <h6 class="op-7 mb-2">Semua siteplan perumahan </h6>
+              <h3 class="fw-bold mb-3">Data Karyawan</h3>
+              <h6 class="op-7 mb-2">Semua data karyawan perusahaan ada disini</h6>
             </div>
             <div class="ms-md-auto py-2 py-md-0">
-              <a href="tambah-data-konsumen.html" class="btn btn-primary btn-round">Tambah Data Siteplan</a>
+              <a href="tambah-data-karyawan.html" class="btn btn-primary btn-round">Tambah Data Karyawan</a>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-lg-6">
-              <a href="index.html">
-                <div class="card card-post card-round">
-                  <img class="card-img-top" src="https://grandfirdausgroup.com/images/detail-gar/siteplan-alfatih.jpeg"alt="">
-                  <div class="card-body">
-                    <p class="card-category text-info mb-1">
-                      <a href="#">Rumah Subsidi</a>
-                    </p>
-                    <h3 class="card-title mb-3">
-                      <a href="#"> Grand Alfatih Residence </a>
-                    </h3>
-                    <a href="#" class="btn btn-primary btn-rounded w-100">Lihat Selengkapnya</a>
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Data Karyawan</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <div id="multi-filter-select_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <table id="multi-filter-select" class="display table table-striped table-hover dataTable"
+                            role="grid" aria-describedby="multi-filter-select_info">
+                            <thead>
+                              <tr role="row">
+                                <th class="sorting_asc" tabindex="0" aria-controls="multi-filter-select" rowspan="1"
+                                  colspan="1" aria-sort="ascending" aria-label="No: activate to sort column descending"
+                                  style="width: 1rem;">No</th>
+                                <th class="sorting" tabindex="0" aria-controls="multi-filter-select" rowspan="1"
+                                  colspan="1" aria-label="Nama: activate to sort column ascending">Nama</th>
+                                <th class="sorting" tabindex="0" aria-controls="multi-filter-select" rowspan="1"
+                                  colspan="1" aria-label="Jabatan : activate to sort column ascending">Jabatan </th>
+                                <th class="sorting" tabindex="0" aria-controls="multi-filter-select" rowspan="1"
+                                  colspan="1" aria-label="Hasil: activate to sort column ascending">Aksi</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr role="row" class="odd">
+                                <td class="sorting_1">1</td>
+                                <td>Sanci</td>
+                                <td>Keuangan</td>
+                                <td>
+                                  <a href="" class="btn btn-icon btn-primary">
+                                    <i class="fas fa-edit"></i>
+                                  </a>
+                                  <a href="" class="btn btn-icon btn-danger">
+                                    <i class="fa fa-trash"></i>
+                                  </a>
+                                </td>
+                              </tr>
+                              <tr role="row" class="odd">
+                                <td class="sorting_1">2</td>
+                                <td>Sri</td>
+                                <td>Legal</td>
+                                <td>
+                                  <a href="" class="btn btn-icon btn-primary">
+                                    <i class="fas fa-edit"></i>
+                                  </a>
+                                  <a href="" class="btn btn-icon btn-danger">
+                                    <i class="fa fa-trash"></i>
+                                  </a>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </a>
-            </div>
-            <div class="col-lg-6">
-              <a href="index.html">
-                <div class="card card-post card-round">
-                  <img class="card-img-top" src="https://images.cdn-files-a.com/uploads/9168076/2000_66271827cea34.jpg" alt="">
-                  <div class="card-body">
-                    <p class="card-category text-info mb-1">
-                      <a href="#">Rumah Subsidi</a>
-                    </p>
-                    <h3 class="card-title mb-3">
-                      <a href="#"> Grand Firdaus Argasunya </a>
-                    </h3>
-                    <a href="#" class="btn btn-primary btn-rounded w-100">Lihat Selengkapnya</a>
-                  </div>
-                </div>
-              </a>
+              </div>
             </div>
           </div>
         </div>
+
+
       </div>
 
       <!-- Custom template | don't include it in your project! -->
@@ -430,31 +461,60 @@
     <script src="assets/js/setting-demo.js"></script>
     <script src="assets/js/demo.js"></script>
     <script>
-      $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
-        type: "line",
-        height: "70",
-        width: "100%",
-        lineWidth: "2",
-        lineColor: "#177dff",
-        fillColor: "rgba(23, 125, 255, 0.14)",
-      });
+      $(document).ready(function () {
+        $("#basic-datatables").DataTable({});
 
-      $("#lineChart2").sparkline([99, 125, 122, 105, 110, 124, 115], {
-        type: "line",
-        height: "70",
-        width: "100%",
-        lineWidth: "2",
-        lineColor: "#f3545d",
-        fillColor: "rgba(243, 84, 93, .14)",
-      });
+        $("#multi-filter-select").DataTable({
+          pageLength: 5,
+          initComplete: function () {
+            this.api()
+              .columns()
+              .every(function () {
+                var column = this;
+                var select = $(
+                  '<select class="form-select"><option value=""></option></select>'
+                )
+                  .appendTo($(column.footer()).empty())
+                  .on("change", function () {
+                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
 
-      $("#lineChart3").sparkline([105, 103, 123, 100, 95, 105, 115], {
-        type: "line",
-        height: "70",
-        width: "100%",
-        lineWidth: "2",
-        lineColor: "#ffa534",
-        fillColor: "rgba(255, 165, 52, .14)",
+                    column
+                      .search(val ? "^" + val + "$" : "", true, false)
+                      .draw();
+                  });
+
+                column
+                  .data()
+                  .unique()
+                  .sort()
+                  .each(function (d, j) {
+                    select.append(
+                      '<option value="' + d + '">' + d + "</option>"
+                    );
+                  });
+              });
+          },
+        });
+
+        // Add Row
+        $("#add-row").DataTable({
+          pageLength: 5,
+        });
+
+        var action =
+          '<td> <div class="form-button-action"> <button type="button" data-bs-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task"> <i class="fa fa-edit"></i> </button> <button type="button" data-bs-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove"> <i class="fa fa-times"></i> </button> </div> </td>';
+
+        $("#addRowButton").click(function () {
+          $("#add-row")
+            .dataTable()
+            .fnAddData([
+              $("#addName").val(),
+              $("#addPosition").val(),
+              $("#addOffice").val(),
+              action,
+            ]);
+          $("#addRowModal").modal("hide");
+        });
       });
     </script>
 </body>
