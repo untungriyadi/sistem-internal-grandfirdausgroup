@@ -308,71 +308,159 @@
             <div class="container">
                 <div class="page-inner">
                     <div class="page-header">
-                        <!-- <h3 class="fw-bold mb-3 ">Buat Laporan Meeting</h3> -->
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <div class="card-title">Tambah Data Perumahan</div>
+                                    <div class="card-title">Tambah Data Konsumen Booking</div>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-6 col-lg-6">
                                             <div class="form-group">
-                                                <label for="materi">Nama Perumahan</label>
-                                                <input type="text" class="form-control" id="materi" placeholder="Nama Perumahan" autofocus>
+                                                <label for="materi">Nama Konsumen</label>
+                                                <input type="text" class="form-control" id="materi" placeholder="..."
+                                                    autofocus>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-lg-6">
                                             <div class="form-group">
-                                                <label for="alamat">Alamat Perumahan</label>
-                                                <input type="text" class="form-control" id="alamat" placeholder="Alamat Perumahan" autofocus>
+                                                <label for="materi">Nama Marketing</label>
+                                                <input type="text" class="form-control" id="materi" placeholder="..."
+                                                    autofocus>
                                             </div>
                                         </div>
+                                        
                                     </div>
-
-                                    
                                     <div class="row">
                                         <div class="col-md-6 col-lg-6">
                                             <div class="form-group">
-                                                <label for="foto-tampak-depan">Foto Tampak Depan Perumahan</label>
-                                                <input type="file" class="form-control" id="foto-tampak-depan">
-                                            </div>
-
-                                        </div>
-                                        <!-- <div class="col-md-6 col-lg-4">
-                                            <div class="form-group">
-                                                <label for="datetime">Person In Charge (PIC)</label>
+                                                <label for="defaultSelect">Pilih Perumahan</label>
                                                 <select class="form-select form-control" id="defaultSelect">
-                                                    <option>=== Pilih PIC ===</option>
-                                                    <option>Elis</option>
-                                                    <option>Risa</option>
-                                                    <option>Wiwin</option>
-                                                    <option>Sanci</option>
-                                                    <option>Sri</option>
-                                                    <option>Tri</option>
-                                                    <option>Ferdy</option>
-                                                    <option>Untung</option>
+                                                    <option>=== Pilih Perumahan ===</option>
+                                                    <option>Grand Alfatih Residence</option>
+                                                    <option>Grand Firdaus Argasunya</option>
+                                                    <option>Grand Tersana Permai</option>
                                                 </select>
                                             </div>
-                                        </div> -->
-                                    </div>
-                                    <!-- <div class="row">
-                                        <div class="col-md-6 col-lg-4">
+                                        </div>
+                                        <div class="col-md-6 col-lg-6">
                                             <div class="form-group">
-                                                <button class="btn btn-secondary">
-                                                    <span class="btn-label">
-                                                        <i class="fa fa-plus"></i>
-                                                    </span> Tambah poin</button>
+                                                <label for="defaultSelect">Pilih Unit Kavling </label>
+                                                <select class="form-select form-control" id="defaultSelect">
+                                                    <option>=== Pilih Unit Kavling ===</option>
+                                                    <option>BLOK A1 - NO. 1</option>
+                                                    <option>BLOK A1 - NO. 2</option>
+                                                    <option>BLOK A1 - NO. 3</option>
+                                                    <option>BLOK A2 - NO. 1</option>
+                                                    <option>BLOK A2 - NO. 2</option>
+                                                    <option>BLOK A2 - NO. 3</option>
+                                                </select>
                                             </div>
                                         </div>
-                                    </div> -->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label for="defaultSelect">Sudah Booking?</label>
+                                                <select class="form-select form-control" id="defaultSelect">
+                                                    <option>=== Pilih Status ===</option>
+                                                    <option>Sudah</option>
+                                                    <option>Belum</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label for="materi">Tanggal Booking</label>
+                                                <input type="date" class="form-control" id="datetime" placeholder="datetime">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="form-group">
+                                                <label for="defaultSelect">Status Pemberkasan</label>
+                                                <select class="form-select form-control" id="defaultSelect">
+                                                    <option>=== Pilih Status ===</option>
+                                                    <option>Sudah</option>
+                                                    <option>On Progress</option>
+                                                    <option>Belum</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="form-group">
+                                                <label for="defaultSelect">Sudah Masuk Berkas?</label>
+                                                <select class="form-select form-control" id="defaultSelect">
+                                                    <option>=== Pilih Status ===</option>
+                                                    <option>Sudah</option>
+                                                    <option>On Progress</option>
+                                                    <option>Belum</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="form-group">
+                                                <label for="defaultSelect">Tanggal Masuk Berkas</label>
+                                                <input type="date" class="form-control" id="datetime" placeholder="datetime">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="form-group">
+                                                <label for="defaultSelect">BANK KPR</label>
+                                                <select class="form-select form-control" id="defaultSelect">
+                                                    <option>=== Pilih Bank ===</option>
+                                                    <option>BTN KONVENSIONAL</option>
+                                                    <option>BTN SYARIAH</option>
+                                                    <option>MANDIRI</option>
+                                                    <option>BRI</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="form-group">
+                                                <label for="defaultSelect">SP3K</label>
+                                                <select class="form-select form-control" id="defaultSelect">
+                                                    <option>=== Pilih Status ===</option>
+                                                    <option>Sudah</option>
+                                                    <option>Belum</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4">
+                                            <div class="form-group">
+                                                <label for="materi">Tanggal SP3K</label>
+                                                <input type="date" class="form-control" id="datetime" placeholder="datetime">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label for="defaultSelect">Akad Kredit</label>
+                                                <select class="form-select form-control" id="defaultSelect">
+                                                    <option>=== Pilih Status ===</option>
+                                                    <option>Sudah</option>
+                                                    <option>Belum</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label for="materi">Tanggal Akad Kredit</label>
+                                                <input type="date" class="form-control" id="datetime" placeholder="datetime">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-
                                 <div class="card-action">
                                     <button class="btn btn-success">Simpan</button>
-                                    <a class="btn btn-danger" href="perencanaan-perumahan.html">Batal</a>
+                                    <a class="btn btn-danger" href="laporan-meeting.html">Batal</a>
                                 </div>
                             </div>
                         </div>
@@ -707,7 +795,7 @@
                 ]
             },
             initialData:
-                '<h2>Congratulations on setting up CKEditor 5! 🎉</h2>\n<p>\n\tYou\'ve successfully created a CKEditor 5 project. This powerful text editor\n\twill enhance your application, enabling rich text editing capabilities that\n\tare customizable and easy to use.\n</p>\n<h3>What\'s next?</h3>\n<ol>\n\t<li>\n\t\t<strong>Integrate into your app</strong>: time to bring the editing into\n\t\tyour application. Take the code you created and add to your application.\n\t</li>\n\t<li>\n\t\t<strong>Explore features:</strong> Experiment with different plugins and\n\t\ttoolbar options to discover what works best for your needs.\n\t</li>\n\t<li>\n\t\t<strong>Customize your editor:</strong> Tailor the editor\'s\n\t\tconfiguration to match your application\'s style and requirements. Or\n\t\teven write your plugin!\n\t</li>\n</ol>\n<p>\n\tKeep experimenting, and don\'t hesitate to push the boundaries of what you\n\tcan achieve with CKEditor 5. Your feedback is invaluable to us as we strive\n\tto improve and evolve. Happy editing!\n</p>\n<h3>Helpful resources</h3>\n<ul>\n\t<li>📝 <a href="https://portal.ckeditor.com/checkout?plan=free">Trial sign up</a>,</li>\n\t<li>📕 <a href="https://ckeditor.com/docs/ckeditor5/latest/installation/index.html">Documentation</a>,</li>\n\t<li>⭐️ <a href="https://github.com/ckeditor/ckeditor5">GitHub</a> (star us if you can!),</li>\n\t<li>🏠 <a href="https://ckeditor.com">CKEditor Homepage</a>,</li>\n\t<li>🧑‍💻 <a href="https://ckeditor.com/ckeditor-5/demo/">CKEditor 5 Demos</a>,</li>\n</ul>\n<h3>Need help?</h3>\n<p>\n\tSee this text, but the editor is not starting up? Check the browser\'s\n\tconsole for clues and guidance. It may be related to an incorrect license\n\tkey if you use premium features or another feature-related requirement. If\n\tyou cannot make it work, file a GitHub issue, and we will help as soon as\n\tpossible!\n</p>\n',
+                '',
             licenseKey: LICENSE_KEY,
             link: {
                 addTargetToExternalLinks: true,
