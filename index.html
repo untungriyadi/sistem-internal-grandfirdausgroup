@@ -282,7 +282,7 @@
                     </li>
                     <li>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Akun saya</a>
+                      <a class="dropdown-item" href="akun-saya.html">Akun saya</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item text-danger" href="login.html"> <i class="fas fa-sign-out-alt"></i>
                         KELUAR</a>
@@ -386,7 +386,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="row">
             <div class="col-md-8">
               <div class="card card-round">
@@ -395,23 +395,11 @@
                     <div class="card-title">Data Konsumen</div>
                     <div class="card-tools">
                       <a href="#" class="btn btn-label-success btn-round btn-sm mb-1">
-                        <span class="btn-label">
-                          <i class="fa fa-download me-2 ms-1"></i>
-                        </span>
-                        Export Excel
-                      </a>
+                        <span class="btlabel"><i class="fa fa-download me-2 ms-1"></i></span>Export Excel</a>
                       <a href="#" class="btn btn-label-info btn-round btn-sm mb-1">
-                        <span class="btn-label">
-                          <i class="fa fa-print me-2 ms-1"></i>
-                        </span>
-                        Print PDF
-                      </a>
+                        <span class="btlabel"><i class="fa fa-print me-2 ms-1"></i></span>Print PDF</a>
                       <a href="data-konsumen.html" class="btn btn-label-secondary btn-round btn-sm mb-1">
-                        <span class="btn-label">
-                          <i class="fa fa-eye me-2 ms-1"></i>
-                        </span>
-                        Lihat Semua
-                      </a>
+                        <span class="btlabel"><i class="fa fa-eye me-2 ms-1"></i></span>Lihat Semua</a>
                     </div>
                   </div>
                 </div>
@@ -430,6 +418,7 @@
                           <th>Status Unit</th>
                           <th>Nama Marketing</th>
                           <th>Booking</th>
+                          <th>Tanggal Booking</th>
                           <th>Pemberkasan</th>
                           <th>Tanggal Masuk Berkas</th>
                           <th>BANK KPR</th>
@@ -437,6 +426,7 @@
                           <th>Tanggal SP3K</th>
                           <th>Akad Kredit</th>
                           <th>Tanggal Akad Kredit</th>
+                          <th>Bukti Pembayaran</th>
                           <th>Aksi</th>
                         </tr>
                       </thead>
@@ -450,6 +440,7 @@
                           <!-- Belum tersedia, Tersedia, Dipesan, Pemberkasan, Proses Bank, Akad Kredit-->
                           <td class="text-center">Wiwin</td>
                           <td class="text-center"><span class="badge badge-success">Sudah</span></td>
+                          <td>Rabu, 12 November 2025</td>
                           <td class="text-center"><span class="badge badge-success">Sudah</span></td>
                           <td>Rabu, 12 November 2025</td>
                           <td>BTN SYARIAH</td>
@@ -457,6 +448,9 @@
                           <td>Rabu, 12 November 2025</td>
                           <td><span class="badge badge-danger">Belum</span></td>
                           <td>Rabu, 12 November 2025</td>
+                          <td class="text-center">
+                            <button class="btn btn-primary"><span class="btn-label"><i class="fa fa-download"></i></span> Unduh Bukti</button>
+                          </td>
                           <td>
                             <button type="button" class="btn btn-icon btn-round btn-primary mb-2"><i
                                 class="fa fa-edit"></i></button>
@@ -473,6 +467,7 @@
                           <!-- Belum tersedia, Tersedia, Dipesan, Pemberkasan, Proses Bank, Akad Kredit-->
                           <td class="text-center">Wiwin</td>
                           <td class="text-center"><span class="badge badge-success">Sudah</span></td>
+                          <td>Rabu, 12 November 2025</td>
                           <td class="text-center"><span class="badge badge-success">Sudah</span></td>
                           <td>Rabu, 12 November 2025</td>
                           <td>BTN SYARIAH</td>
@@ -480,6 +475,9 @@
                           <td>Rabu, 12 November 2025</td>
                           <td><span class="badge badge-danger">Belum</span></td>
                           <td>Rabu, 12 November 2025</td>
+                          <td class="text-center">
+                            <button class="btn btn-primary"><span class="btn-label"><i class="fa fa-download"></i></span> Unduh Bukti</button>
+                          </td>
                           <td>
                             <button type="button" class="btn btn-icon btn-round btn-primary mb-2"><i
                                 class="fa fa-edit"></i></button>
@@ -496,6 +494,7 @@
                           <!-- Belum tersedia, Tersedia, Dipesan, Pemberkasan, Proses Bank, Akad Kredit-->
                           <td class="text-center">Wiwin</td>
                           <td class="text-center"><span class="badge badge-success">Sudah</span></td>
+                          <td>Rabu, 12 November 2025</td>
                           <td class="text-center"><span class="badge badge-success">Sudah</span></td>
                           <td>Rabu, 12 November 2025</td>
                           <td>BTN SYARIAH</td>
@@ -503,6 +502,9 @@
                           <td>Rabu, 12 November 2025</td>
                           <td><span class="badge badge-danger">Belum</span></td>
                           <td>Rabu, 12 November 2025</td>
+                          <td class="text-center">
+                            <button class="btn btn-primary"><span class="btn-label"><i class="fa fa-download"></i></span> Unduh Bukti</button>
+                          </td>
                           <td>
                             <button type="button" class="btn btn-icon btn-round btn-primary mb-2"><i
                                 class="fa fa-edit"></i></button>
@@ -553,7 +555,7 @@
                   </div>
                 </div>
               </div>
-              
+
             </div>
           </div>
 
@@ -565,23 +567,11 @@
                     <div class="card-title">Histori Transaksi Booking Fee</div>
                     <div class="card-tools">
                       <a href="#" class="btn btn-label-success btn-round btn-sm mb-1">
-                        <span class="btn-label">
-                          <i class="fa fa-download me-2 ms-1"></i>
-                        </span>
-                        Export Excel
-                      </a>
+                        <span class="btlabel"><i class="fa fa-download me-2 ms-1"></i></span>Export Excel</a>
                       <a href="#" class="btn btn-label-info btn-round btn-sm mb-1">
-                        <span class="btn-label">
-                          <i class="fa fa-print me-2 ms-1"></i>
-                        </span>
-                        Print PDF
-                      </a>
+                        <span class="btlabel"><i class="fa fa-print me-2 ms-1"></i></span>Print PDF</a>
                       <a href="data-konsumen.html" class="btn btn-label-secondary btn-round btn-sm mb-1">
-                        <span class="btn-label">
-                          <i class="fa fa-eye me-2 ms-1"></i>
-                        </span>
-                        Lihat Semua
-                      </a>
+                        <span class="btlabel"><i class="fa fa-eye me-2 ms-1"></i></span>Lihat Semua</a>
                     </div>
                   </div>
                 </div>
@@ -596,6 +586,7 @@
                           <th scope="col" class="text-end">Perumahan</th>
                           <th scope="col" class="text-end">Tanggal</th>
                           <th scope="col" class="text-end">Bayar</th>
+                          <th scope="col" class="text-end">Bukti Pembayaran</th>
                           <th scope="col" class="text-end">Status</th>
                         </tr>
                       </thead>
@@ -606,6 +597,9 @@
                           <td class="text-end">Grand Alfatih Residence</td>
                           <td class="text-end">29 September 2025</td>
                           <td class="text-end">Rp. 500.000</td>
+                          <td class="text-center">
+                            <button class="btn btn-primary"><span class="btn-label"><i class="fa fa-download"></i></span> Unduh Bukti</button>
+                          </td>
                           <td class="text-end">
                             <span class="badge badge-success">Selesai</span>
                           </td>
@@ -616,6 +610,9 @@
                           <td class="text-end">Grand Firdaus Argasunya</td>
                           <td class="text-end">25 September 2025</td>
                           <td class="text-end">Rp. 200.000</td>
+                          <td class="text-center">
+                            <button class="btn btn-primary"><span class="btn-label"><i class="fa fa-download"></i></span> Unduh Bukti</button>
+                          </td>
                           <td class="text-end">
                             <span class="badge badge-success">Selesai</span>
                           </td>
