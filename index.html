@@ -82,6 +82,19 @@
                 <p>Laporan Meeting</p>
               </a>
             </li>
+            
+            <li class="nav-item">
+              <a href="keuangan.html">
+                <i class="fas fa-table"></i>
+                <p>Keuangan</p>
+              </a>
+            </li>
+            <li class="nav-section">
+              <span class="sidebar-mini-icon">
+                <i class="fa fa-ellipsis-h"></i>
+              </span>
+              <h4 class="text-section">Lapangan</h4>
+            </li>
             <li class="nav-item">
               <a href="siteplan.html">
                 <i class="fas fa-th-list"></i>
@@ -115,10 +128,36 @@
               </div>
             </li>
             <li class="nav-item">
-              <a href="keuangan.html">
-                <i class="fas fa-table"></i>
-                <p>Keuangan</p>
+              <a data-bs-toggle="collapse" href="#gudang-material">
+                <i class="fas fa-pen-square"></i>
+                <p>Data Gudang Material</p>
+                <span class="caret"></span>
               </a>
+              <div class="collapse" id="gudang-material">
+                <ul class="nav nav-collapse">
+                  <li>
+                    <a href="perencanaan-perumahan.html">
+                      <span class="sub-item">Perencanaan Perumahan</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="pelaksanaan-perumahan.html">
+                      <span class="sub-item">Pelaksanaan Perumahan</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="pengawasan-perumahan.html">
+                      <span class="sub-item">Pengawasan Perumahan</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-section">
+              <span class="sidebar-mini-icon">
+                <i class="fa fa-ellipsis-h"></i>
+              </span>
+              <h4 class="text-section">Karyawan</h4>
             </li>
             <li class="nav-item">
               <a href="data-karyawan.html">
@@ -126,10 +165,34 @@
                 <p>Data Karyawan</p>
               </a>
             </li>
+            <li class="nav-section">
+              <span class="sidebar-mini-icon">
+                <i class="fa fa-ellipsis-h"></i>
+              </span>
+              <h4 class="text-section">Konsumen</h4>
+            </li>
             <li class="nav-item">
               <a href="data-konsumen.html">
                 <i class="fas fa-address-book"></i>
                 <p>Data Konsumen</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="">
+                <i class="fas fa-address-book"></i>
+                <p>Data Komplain</p>
+              </a>
+            </li>
+            <li class="nav-section">
+              <span class="sidebar-mini-icon">
+                <i class="fa fa-ellipsis-h"></i>
+              </span>
+              <h4 class="text-section">pengaturan</h4>
+            </li>
+            <li class="nav-item ">
+              <a href="">
+                <i class="fas fa-sign-out-alt text-danger"></i>
+                <p class="text-danger">KELUAR</p>
               </a>
             </li>
           </ul>
@@ -306,6 +369,84 @@
             <div class="ms-md-auto py-2 py-md-0">
               <!-- <a href="#" class="btn btn-label-info btn-round me-2">Manage</a> -->
               <a href="tambah-data-konsumen.html" class="btn btn-primary btn-round">Tambah Data Konsumen</a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 col-md-3">
+              <div class="card card-stats card-round">
+                <div class="card-body">
+                  <div class="row align-items-center">
+                    <div class="col-icon">
+                      <div class="icon-big text-center icon-primary bubble-shadow-small">
+                        <i class="fas fa-users"></i>
+                      </div>
+                    </div>
+                    <div class="col col-stats ms-3 ms-sm-0">
+                      <div class="numbers">
+                        <p class="card-category">Total Semua Unit</p>
+                        <h4 class="card-title">639</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="card card-stats card-round">
+                <div class="card-body">
+                  <div class="row align-items-center">
+                    <div class="col-icon">
+                      <div class="icon-big text-center icon-info bubble-shadow-small">
+                        <i class="fas fa-user-check"></i>
+                      </div>
+                    </div>
+                    <div class="col col-stats ms-3 ms-sm-0">
+                      <div class="numbers">
+                        <p class="card-category">Booking Unit</p>
+                        <h4 class="card-title">40</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="card card-stats card-round">
+                <div class="card-body">
+                  <div class="row align-items-center">
+                    <div class="col-icon">
+                      <div class="icon-big text-center icon-success bubble-shadow-small">
+                        <i class="fas fa-luggage-cart"></i>
+                      </div>
+                    </div>
+                    <div class="col col-stats ms-3 ms-sm-0">
+                      <div class="numbers">
+                        <p class="card-category">Proses Bank</p>
+                        <h4 class="card-title">30</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="card card-stats card-round">
+                <div class="card-body">
+                  <div class="row align-items-center">
+                    <div class="col-icon">
+                      <div class="icon-big text-center icon-secondary bubble-shadow-small">
+                        <i class="far fa-check-circle"></i>
+                      </div>
+                    </div>
+                    <div class="col col-stats ms-3 ms-sm-0">
+                      <div class="numbers">
+                        <p class="card-category">Akad Kredit</p>
+                        <h4 class="card-title">76</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="row">
