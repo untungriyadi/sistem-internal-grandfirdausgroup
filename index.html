@@ -130,7 +130,7 @@
             <li class="nav-item">
               <a data-bs-toggle="collapse" href="#gudang-material">
                 <i class="fas fa-pen-square"></i>
-                <p>Data Gudang Material</p>
+                <p>Gudang Stok Material</p>
                 <span class="caret"></span>
               </a>
               <div class="collapse" id="gudang-material">
@@ -162,7 +162,19 @@
             <li class="nav-item">
               <a href="data-karyawan.html">
                 <i class="fas fa-users"></i>
+                <p>Administrasi Surat</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="data-karyawan.html">
+                <i class="fas fa-users"></i>
                 <p>Data Karyawan</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="data-karyawan.html">
+                <i class="fas fa-users"></i>
+                <p>Data Absensi Karyawan</p>
               </a>
             </li>
             <li class="nav-section">
@@ -183,7 +195,7 @@
                 <p>Data Komplain</p>
               </a>
             </li>
-            <li class="nav-section">
+            <!-- <li class="nav-section">
               <span class="sidebar-mini-icon">
                 <i class="fa fa-ellipsis-h"></i>
               </span>
@@ -194,7 +206,7 @@
                 <i class="fas fa-sign-out-alt text-danger"></i>
                 <p class="text-danger">KELUAR</p>
               </a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
@@ -252,6 +264,8 @@
                   </form>
                 </ul>
               </li>
+
+              <li class="fw-bold"><i class="fas fa-clock"></i> 08.50 WIB</li>
 
               <li class="nav-item topbar-icon dropdown hidden-caret">
                 <a class="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-bs-toggle="dropdown"
@@ -318,8 +332,6 @@
                     </li> -->
                 </ul>
               </li>
-
-
               <li class="nav-item topbar-user dropdown hidden-caret">
                 <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#" aria-expanded="false">
                   <div class="avatar-sm">
@@ -370,6 +382,63 @@
               <a href="tambah-data-konsumen.html" class="btn btn-primary btn-round">Tambah Data Konsumen</a>
             </div>
           </div>
+
+          <!-- CARD ABSEN MASUK DAN PULANG AUTOMATIS HILANG KETIKA SUDAH ABSENSI DAN AUTOMATIS KELUAR JIKA DI JAM 5 UNTUK ABSEN PULANG -->
+          <div class="col-md-4 ms-auto me-auto">
+            <div class="card card-profile">
+              <div class="card-header" style="background-image: url('assets/img/blogpost.jpg')">
+                <div class="profile-picture">
+                  <div class="avatar avatar-xl">
+                    <img src="assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="user-profile text-center">
+                  <div class="name fw-bold">Rikkih Hendrawan</div>
+                  <div class="job">Manager </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="row user-stats">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                          <label for="defaultSelect" class="fw-bold">Jenis Presensi</label>
+                          <select class="form-select form-control" id="defaultSelect">
+                            <option>=== Pilih Presensi ===</option>
+                            <option>Masuk</option>
+                            <option>Sakit</option>
+                            <option>Izin</option>
+                            <option>Cuti</option>
+                          </select>
+                        </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="" class="fw-bold">Bukti Presensi</label><br>
+                      <input type="file" class="form-control-file" id="user" capture="user" accept="image/*">
+                    </div>
+                  </div>
+                </div>
+                <div class="row user-stats">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="keterangan" class="fw-bold">Keterangan</label>
+                      <input class="form-control" id="keterangan"></input>
+                    </div>
+                  </div>
+                </div>
+                <div class="row user-stats">
+                  <div class="col">
+                    <div class="form-group">
+                      <a href="#" class="btn btn-primary w-100">PRESENSI</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="row">
             <div class="col-sm-6 col-md-3">
               <div class="card card-stats card-round">
@@ -401,7 +470,7 @@
                     </div>
                     <div class="col col-stats ms-3 ms-sm-0">
                       <div class="numbers">
-                        <p class="card-category">Booking Unit</p>
+                        <p class="card-category">Total Booking Unit</p>
                         <h4 class="card-title">40</h4>
                       </div>
                     </div>
@@ -420,7 +489,7 @@
                     </div>
                     <div class="col col-stats ms-3 ms-sm-0">
                       <div class="numbers">
-                        <p class="card-category">Proses Bank</p>
+                        <p class="card-category">Total Proses Bank</p>
                         <h4 class="card-title">30</h4>
                       </div>
                     </div>
@@ -439,7 +508,7 @@
                     </div>
                     <div class="col col-stats ms-3 ms-sm-0">
                       <div class="numbers">
-                        <p class="card-category">Akad Kredit</p>
+                        <p class="card-category">Total Akad Kredit</p>
                         <h4 class="card-title">76</h4>
                       </div>
                     </div>
@@ -460,8 +529,8 @@
                     </div>
                     <div class="col col-stats ms-3 ms-sm-0">
                       <div class="numbers">
-                        <p class="card-category">Total Semua Unit</p>
-                        <h4 class="card-title">639</h4>
+                        <p class="card-category">Proses Pemberkasan</p>
+                        <h4 class="card-title">30/40</h4>
                       </div>
                     </div>
                   </div>
@@ -479,8 +548,8 @@
                     </div>
                     <div class="col col-stats ms-3 ms-sm-0">
                       <div class="numbers">
-                        <p class="card-category">Booking Unit</p>
-                        <h4 class="card-title">40</h4>
+                        <p class="card-category">Masuk Berkas</p>
+                        <h4 class="card-title">30/40</h4>
                       </div>
                     </div>
                   </div>
@@ -498,8 +567,8 @@
                     </div>
                     <div class="col col-stats ms-3 ms-sm-0">
                       <div class="numbers">
-                        <p class="card-category">Proses Bank</p>
-                        <h4 class="card-title">30</h4>
+                        <p class="card-category">SP3K</p>
+                        <h4 class="card-title">30/40</h4>
                       </div>
                     </div>
                   </div>
@@ -518,7 +587,7 @@
                     <div class="col col-stats ms-3 ms-sm-0">
                       <div class="numbers">
                         <p class="card-category">Akad Kredit</p>
-                        <h4 class="card-title">76</h4>
+                        <h4 class="card-title">30/40</h4>
                       </div>
                     </div>
                   </div>
@@ -590,7 +659,8 @@
                           <td>Rabu, 12 November 2025</td>
                           <td class="text-center">
                             <button class="btn btn-primary"><span class="btn-label"><i
-                                  class="fa fa-download"></i></span> Unduh Bukti</button>
+                                  class="fa fa-download"></i></span>
+                              Unduh Bukti</button>
                           </td>
                           <td>
                             <button type="button" class="btn btn-icon btn-round btn-primary mb-2"><i
@@ -618,7 +688,8 @@
                           <td>Rabu, 12 November 2025</td>
                           <td class="text-center">
                             <button class="btn btn-primary"><span class="btn-label"><i
-                                  class="fa fa-download"></i></span> Unduh Bukti</button>
+                                  class="fa fa-download"></i></span>
+                              Unduh Bukti</button>
                           </td>
                           <td>
                             <button type="button" class="btn btn-icon btn-round btn-primary mb-2"><i
@@ -646,7 +717,8 @@
                           <td>Rabu, 12 November 2025</td>
                           <td class="text-center">
                             <button class="btn btn-primary"><span class="btn-label"><i
-                                  class="fa fa-download"></i></span> Unduh Bukti</button>
+                                  class="fa fa-download"></i></span>
+                              Unduh Bukti</button>
                           </td>
                           <td>
                             <button type="button" class="btn btn-icon btn-round btn-primary mb-2"><i
@@ -742,7 +814,8 @@
                           <td class="text-end">Rp. 500.000</td>
                           <td class="text-center">
                             <button class="btn btn-primary"><span class="btn-label"><i
-                                  class="fa fa-download"></i></span> Unduh Bukti</button>
+                                  class="fa fa-download"></i></span>
+                              Unduh Bukti</button>
                           </td>
                           <td class="text-end">
                             <span class="badge badge-success">Selesai</span>
@@ -756,7 +829,8 @@
                           <td class="text-end">Rp. 200.000</td>
                           <td class="text-center">
                             <button class="btn btn-primary"><span class="btn-label"><i
-                                  class="fa fa-download"></i></span> Unduh Bukti</button>
+                                  class="fa fa-download"></i></span>
+                              Unduh Bukti</button>
                           </td>
                           <td class="text-end">
                             <span class="badge badge-success">Selesai</span>
