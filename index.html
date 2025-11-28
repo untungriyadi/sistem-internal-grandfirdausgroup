@@ -44,8 +44,7 @@
         <!-- Logo Header -->
         <div class="logo-header" data-background-color="dark">
           <a href="index.html" class="logo">
-            <img src="assets/img/logo.png" alt="navbar brand" class="navbar-brand ms-2"
-              height="35" />
+            <img src="assets/img/logo.png" alt="navbar brand" class="navbar-brand ms-2" height="35" />
           </a>
           <div class="nav-toggle">
             <button class="btn btn-toggle toggle-sidebar">
@@ -76,6 +75,7 @@
               </span>
               <h4 class="text-section">Menu</h4>
             </li>
+
             <li class="nav-item">
               <a href="laporan-meeting.html">
                 <i class="fas fa-layer-group"></i>
@@ -84,23 +84,214 @@
             </li>
 
             <li class="nav-item">
-              <a href="keuangan.html">
-                <i class="fas fa-table"></i>
-                <p>Keuangan</p>
-              </a>
-            </li>
-            <li class="nav-section">
-              <span class="sidebar-mini-icon">
-                <i class="fa fa-ellipsis-h"></i>
-              </span>
-              <h4 class="text-section">Lapangan</h4>
-            </li>
-            <li class="nav-item">
               <a href="siteplan.html">
                 <i class="fas fa-th-list"></i>
                 <p>SitePlan</p>
               </a>
             </li>
+
+            <li class="nav-item">
+              <a data-bs-toggle="collapse" href="#konfigurasi">
+                <i class="fas fa-wrench"></i>
+                <p>Konfigurasi</p>
+                <span class="caret"></span>
+              </a>
+              <div class="collapse" id="konfigurasi">
+                <ul class="nav nav-collapse">
+                  <li>
+                    <a href="">
+                      <span class="sub-item">Konfigurasi RAB HPP</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <span class="sub-item">Konfigurasi Akun (COA)</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a data-bs-toggle="collapse" href="#master-data">
+                <i class="fas fa-database"></i>
+                <p>Master Data</p>
+                <span class="caret"></span>
+              </a>
+              <div class="collapse" id="master-data">
+                <ul class="nav nav-collapse">
+                  <li>
+                    <a href="">
+                      <span class="sub-item">Data Karyawan</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <span class="sub-item">Data Presensi Karyawan</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <span class="sub-item">Data Perusahaan</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <span class="sub-item">Data Perumahan</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <span class="sub-item">Data Stakeholder</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <span class="sub-item">Data Rekening Bank</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <span class="sub-item">Data (COA)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <span class="sub-item">Data Pekerjaan RAB HPP</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <span class="sub-item">Data Konsumen</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <span class="sub-item">Data Komplain Konsumen</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <span class="sub-item">Data Adm Surat</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a data-bs-toggle="collapse" href="#keuangan">
+                <i class="fas fa-table"></i>
+                <p>Keuangan</p>
+                <span class="caret"></span>
+              </a>
+              <div class="collapse" id="keuangan">
+                <ul class="nav nav-collapse">
+                  <li class="nav-item ms-5">
+                    <a data-bs-toggle="collapse" href="#pemasukan">
+                      <!-- <i class="fas fa-table"></i> -->
+                      <p>Pemasukan</p>
+                      <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="pemasukan">
+                      <ul class="nav nav-collapse">
+                        <li>
+                          <a href="">
+                            <span class="sub-item">Kas / KPR</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="">
+                            <span class="sub-item">Piutang Lain Lain</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="">
+                            <span class="sub-item">Transaksi Piutang Lain Lain</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="">
+                            <span class="sub-item">Retensi</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="nav-item ms-5">
+                    <a data-bs-toggle="collapse" href="#pengeluaran">
+                      <!-- <i class="fas fa-table"></i> -->
+                      <p>Pengeluaran</p>
+                      <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="pengeluaran">
+                      <ul class="nav nav-collapse">
+                        <li>
+                          <a href="">
+                            <span class="sub-item">RAB HPP</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="">
+                            <span class="sub-item">Hutang Lain Lain</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="">
+                            <span class="sub-item">Transaksi Hutang Lain Lain</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="nav-item ms-5">
+                    <a href="">
+                      <p>Jurnal Umum</p>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a data-bs-toggle="collapse" href="#legalitas">
+                <i class="fas fa-pen-square"></i>
+                <p>Legalitas</p>
+                <span class="caret"></span>
+              </a>
+              <div class="collapse" id="legalitas">
+                <ul class="nav nav-collapse">
+                  <li>
+                    <a href="">
+                      <span class="sub-item">Kontrol Retensi</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a data-bs-toggle="collapse" href="#laporan-sales">
+                <i class="fas fa-chart-bar"></i>
+                <p>Laporan Sales</p>
+                <span class="caret"></span>
+              </a>
+              <div class="collapse" id="laporan-sales">
+                <ul class="nav nav-collapse">
+                  <li>
+                    <a href="">
+                      <span class="sub-item">Laporan Penjualan</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <span class="sub-item">Laporan Konsumen</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
             <li class="nav-item">
               <a data-bs-toggle="collapse" href="#forms">
                 <i class="fas fa-pen-square"></i>
@@ -127,86 +318,207 @@
                 </ul>
               </div>
             </li>
+
             <li class="nav-item">
-              <a data-bs-toggle="collapse" href="#gudang-material">
-                <i class="fas fa-pen-square"></i>
-                <p>Gudang Stok Material</p>
+              <a data-bs-toggle="collapse" href="#laporan-logistik">
+                <i class="fas fa-warehouse"></i>
+                <p>Laporan Logistik</p>
                 <span class="caret"></span>
               </a>
-              <div class="collapse" id="gudang-material">
+              <div class="collapse" id="laporan-logistik">
                 <ul class="nav nav-collapse">
                   <li>
-                    <a href="perencanaan-perumahan.html">
-                      <span class="sub-item">Perencanaan Perumahan</span>
+                    <a href="data-gudang-stok-material.html">
+                      <span class="sub-item">Gudang Stok Material</span>
                     </a>
                   </li>
                   <li>
-                    <a href="pelaksanaan-perumahan.html">
-                      <span class="sub-item">Pelaksanaan Perumahan</span>
+                    <a href="">
+                      <span class="sub-item">Laporan Penjualan</span>
                     </a>
                   </li>
                   <li>
-                    <a href="pengawasan-perumahan.html">
-                      <span class="sub-item">Pengawasan Perumahan</span>
+                    <a href="">
+                      <span class="sub-item">Laporan Konsumen</span>
                     </a>
                   </li>
                 </ul>
               </div>
             </li>
-            <li class="nav-section">
-              <span class="sidebar-mini-icon">
-                <i class="fa fa-ellipsis-h"></i>
-              </span>
-              <h4 class="text-section">Karyawan</h4>
-            </li>
+
             <li class="nav-item">
-              <a href="data-karyawan.html">
-                <i class="fas fa-users"></i>
-                <p>Administrasi Surat</p>
+              <a data-bs-toggle="collapse" href="#laporan-keuangan">
+                <i class="fas fa-window-maximize"></i>
+                <p>Laporan Keuangan</p>
+                <span class="caret"></span>
+              </a>
+              <div class="collapse" id="laporan-keuangan">
+                <ul class="nav nav-collapse">
+                  <li class="nav-item ms-3">
+                    <a data-bs-toggle="collapse" href="#rekapitulasi-pemasukan">
+                      <!-- <i class="fas fa-table"></i> -->
+                      <p>Rekapitulasi Pemasukan</p>
+                      <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="rekapitulasi-pemasukan">
+                      <ul class="nav nav-collapse">
+                        <li>
+                          <a href="">
+                            <span class="sub-item">Transaksi Kas / Transfer</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="">
+                            <span class="sub-item">Transaksi KPR</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="">
+                            <span class="sub-item">Transaksi Piutang Lain Lain</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="">
+                            <span class="sub-item">Kas / Transfer</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="">
+                            <span class="sub-item">Piutang KPR</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="">
+                            <span class="sub-item">Piutang Lain Lain</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="">
+                            <span class="sub-item">Tanda Jadi</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="">
+                            <span class="sub-item">Piutang Retensi</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="">
+                            <span class="sub-item">Transaksi Retensi</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="nav-item ms-3">
+                    <a data-bs-toggle="collapse" href="#rekapitulasi-pengeluaran">
+                      <!-- <i class="fas fa-table"></i> -->
+                      <p>Rekapitulasi Pengeluaran</p>
+                      <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="rekapitulasi-pengeluaran">
+                      <ul class="nav nav-collapse">
+                        <li>
+                          <a href="">
+                            <span class="sub-item">Transaksi Hutang Lain Lain</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="">
+                            <span class="sub-item">Hutang Lain Lain</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="">
+                            <span class="sub-item">Biaya HPP</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a href="data-gudang-stok-material.html">
+                <i class="fas fa-window-maximize"></i>
+                <p>Laporan Akuntansi</p>
               </a>
             </li>
+
             <li class="nav-item">
-              <a href="data-karyawan.html">
-                <i class="fas fa-users"></i>
-                <p>Data Karyawan</p>
+              <a data-bs-toggle="collapse" href="#laporan-grafik">
+                <i class="fas fa-chart-pie"></i>
+                <p>Laporan Grafik</p>
+                <span class="caret"></span>
               </a>
+              <div class="collapse" id="laporan-grafik">
+                <ul class="nav nav-collapse">
+                  <li>
+                    <a href="">
+                      <span class="sub-item">Pemasaran</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <span class="sub-item">Keuangan</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <span class="sub-item">Operasional</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </li>
+
             <li class="nav-item">
-              <a href="data-absensi-karyawan.html">
-                <i class="fas fa-users"></i>
-                <p>Data Presensi Karyawan</p>
+              <a data-bs-toggle="collapse" href="#bantuan">
+                <i class="fas fa-info-circle"></i>
+                <p>Bantuan</p>
+                <span class="caret"></span>
               </a>
+              <div class="collapse" id="bantuan">
+                <ul class="nav nav-collapse">
+                  <li>
+                    <a href="">
+                      <span class="sub-item">Proses Binis</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <span class="sub-item">Pemetaan Tugas</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <span class="sub-item">Alur Input Data Opsional</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <span class="sub-item">Alur Input Data Keuangan</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      <span class="sub-item">Alur Input Data Logistik</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </li>
-            <li class="nav-section">
-              <span class="sidebar-mini-icon">
-                <i class="fa fa-ellipsis-h"></i>
-              </span>
-              <h4 class="text-section">Konsumen</h4>
-            </li>
+
+            <!-- keluar -->
             <li class="nav-item">
-              <a href="data-konsumen.html">
-                <i class="fas fa-address-book"></i>
-                <p>Data Konsumen</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="data-komplain.html">
-                <i class="fas fa-address-book"></i>
-                <p>Data Komplain</p>
-              </a>
-            </li>
-            <!-- <li class="nav-section">
-              <span class="sidebar-mini-icon">
-                <i class="fa fa-ellipsis-h"></i>
-              </span>
-              <h4 class="text-section">pengaturan</h4>
-            </li>
-            <li class="nav-item ">
-              <a href="">
-                <i class="fas fa-sign-out-alt text-danger"></i>
+              <a href="data-gudang-stok-material.html">
+                <i class="fas fa-sign-out-alt text-danger" style="transform: scaleX(-1);"></i>
                 <p class="text-danger">KELUAR</p>
               </a>
-            </li> -->
+            </li>
+
           </ul>
         </div>
       </div>
@@ -219,8 +531,7 @@
           <!-- Logo Header -->
           <div class="logo-header" data-background-color="dark">
             <a href="index.html" class="logo">
-              <img src="assets/img/logo.png" alt="navbar brand" class="navbar-brand ms-2"
-                height="35" />
+              <img src="assets/img/logo.png" alt="navbar brand" class="navbar-brand ms-2" height="35" />
             </a>
             <div class="nav-toggle">
               <button class="btn btn-toggle toggle-sidebar">
@@ -384,59 +695,88 @@
           </div>
 
           <!-- CARD ABSEN MASUK DAN PULANG AUTOMATIS HILANG KETIKA SUDAH ABSENSI DAN AUTOMATIS KELUAR JIKA DI JAM 5 UNTUK ABSEN PULANG -->
-          <div class="col-md-4 ms-auto me-auto">
-            <div class="card card-profile">
-              <div class="card-header" style="background-image: url('assets/img/blogpost.jpg')">
-                <div class="profile-picture">
-                  <div class="avatar avatar-xl">
-                    <img src="assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
-                  </div>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="user-profile text-center">
-                  <div class="name fw-bold">Rikkih Hendrawan</div>
-                  <div class="job">Manager </div>
-                </div>
-              </div>
-              <div class="card-footer">
-                <div class="row user-stats">
-                  <div class="col-lg-6">
-                    <div class="form-group">
-                          <label for="defaultSelect" class="fw-bold">Presensi</label>
-                          <select class="form-select form-control" id="defaultSelect">
-                            <option>== Pilih Presensi ==</option>
-                            <option>Masuk</option>
-                            <option>Sakit</option>
-                            <option>Izin</option>
-                            <option>Cuti</option>
-                          </select>
-                        </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="form-group">
-                      <label for="" class="fw-bold">Bukti Presensi</label><br>
-                      <input type="file" class="form-control-file" id="user" capture="user" accept="image/*">
+          <div class="row">
+            <div class="col-md-4 ms-auto me-auto">
+              <div class="card card-profile">
+                <div class="card-header" style="background-image: url('assets/img/blogpost.jpg')">
+                  <div class="profile-picture">
+                    <div class="avatar avatar-xl">
+                      <img src="assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
                     </div>
                   </div>
                 </div>
-                <div class="row user-stats">
-                  <div class="col">
-                    <div class="form-group">
-                      <label for="keterangan" class="fw-bold">Keterangan</label>
-                      <input class="form-control" id="keterangan" placeholder="..."></input>
-                    </div>
+                <div class="card-body">
+                  <div class="user-profile text-center">
+                    <div class="name fw-bold">Rikkih Hendrawan</div>
+                    <div class="job">Manager </div>
                   </div>
                 </div>
-                <div class="row user-stats">
-                  <div class="col">
-                    <div class="form-group">
-                      <a href="#" class="btn btn-primary w-100">PRESENSI</a>
+                <div class="card-footer">
+                  <div class="row user-stats">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="defaultSelect" class="fw-bold">Presensi</label>
+                        <select class="form-select form-control" id="defaultSelect">
+                          <option>== Pilih Presensi ==</option>
+                          <option>Masuk</option>
+                          <option>Sakit</option>
+                          <option>Izin</option>
+                          <option>Cuti</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="" class="fw-bold">Bukti Presensi</label><br>
+                        <input type="file" class="form-control-file" id="user" capture="user" accept="image/*">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row user-stats">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="keterangan" class="fw-bold">Keterangan</label>
+                        <input class="form-control" id="keterangan" placeholder="..."></input>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row user-stats">
+                    <div class="col">
+                      <div class="form-group">
+                        <a href="#" class="btn btn-primary w-100">PRESENSI MASUK</a>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            <div class="col-md-4 ms-auto me-auto">
+              <div class="card card-profile">
+                <div class="card-header" style="background-image: url('assets/img/blogpost.jpg')">
+                  <div class="profile-picture">
+                    <div class="avatar avatar-xl">
+                      <img src="assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="user-profile text-center">
+                    <div class="name fw-bold">Rikkih Hendrawan</div>
+                    <div class="job">Manager </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="row user-stats">
+                    <div class="col">
+                      <div class="form-group">
+                        <a href="#" class="btn btn-danger w-100">PRESENSI PULANG</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
 
           <div class="row">
