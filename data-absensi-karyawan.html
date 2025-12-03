@@ -283,7 +283,7 @@
 
       <div class="container">
         <div class="page-inner">
-          
+
           <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row pt-2 pb-4">
             <div>
               <h3 class="fw-bold mb-3">Data Presensi Karyawan</h3>
@@ -382,14 +382,25 @@
                             role="grid" aria-describedby="multi-filter-select_info">
                             <thead>
                               <tr role="row">
-                                <th class="sorting_asc" tabindex="0" aria-controls="multi-filter-select" rowspan="1" colspan="1" aria-sort="ascending" aria-label="No: activate to sort column descending"
+                                <th class="sorting_asc" tabindex="0" aria-controls="multi-filter-select" rowspan="1"
+                                  colspan="1" aria-sort="ascending" aria-label="No: activate to sort column descending"
                                   style="width: 1rem;">No</th>
-                                <th class="sorting" tabindex="0" aria-controls="multi-filter-select" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">Nama</th>
-                                <th class="sorting" tabindex="0" aria-controls="multi-filter-select" rowspan="1" colspan="1" aria-label="Tanggal : activate to sort column ascending">Tanggal </th>
-                                <th class="sorting" tabindex="0" aria-controls="multi-filter-select" rowspan="1" colspan="1" aria-label="Presensi : activate to sort column ascending">Presensi </th>
-                                <th class="sorting" tabindex="0" aria-controls="multi-filter-select" rowspan="1" colspan="1" aria-label="Keterangan : activate to sort column ascending">Keterangan </th>
-                                <th class="sorting" tabindex="0" aria-controls="multi-filter-select" rowspan="1" colspan="1" aria-label="Bukti Presensi : activate to sort column ascending">Bukti Presensi </th>
-                                <th class="sorting" tabindex="0" aria-controls="multi-filter-select" rowspan="1" colspan="1" aria-label="Hasil: activate to sort column ascending">Aksi</th>
+                                <th class="sorting" tabindex="0" aria-controls="multi-filter-select" rowspan="1"
+                                  colspan="1" aria-label="Nama: activate to sort column ascending">Nama</th>
+                                <th class="sorting" tabindex="0" aria-controls="multi-filter-select" rowspan="1"
+                                  colspan="1" aria-label="Tanggal : activate to sort column ascending">Tanggal </th>
+                                <th class="sorting" tabindex="0" aria-controls="multi-filter-select" rowspan="1"
+                                  colspan="1" aria-label="Presensi : activate to sort column ascending">Masuk </th>
+                                <th class="sorting" tabindex="0" aria-controls="multi-filter-select" rowspan="1"
+                                  colspan="1" aria-label="Presensi : activate to sort column ascending">Pulang </th>
+                                <th class="sorting" tabindex="0" aria-controls="multi-filter-select" rowspan="1"
+                                  colspan="1" aria-label="Keterangan : activate to sort column ascending">Keterangan
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="multi-filter-select" rowspan="1"
+                                  colspan="1" aria-label="Bukti Presensi : activate to sort column ascending">Bukti
+                                  Presensi </th>
+                                <th class="sorting" tabindex="0" aria-controls="multi-filter-select" rowspan="1"
+                                  colspan="1" aria-label="Hasil: activate to sort column ascending">Aksi</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -397,25 +408,11 @@
                                 <td class="sorting_1">1</td>
                                 <td>Sanci</td>
                                 <td>Senin, 1 Desember 2025</td>
+                                <td>07.55</td>
+                                <td>16.58</td>
                                 <td>Masuk</td>
-                                <td>Masuk</td>
-                                <td><a href="" class="btn btn-primary"><i class="fas fa-download"></i> Unduh Bukti</a></td>
-                                <td>
-                                    <a href="" class="btn btn-icon btn-primary">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <a href="" class="btn btn-icon btn-danger">
-                                        <i class="fa fa-trash"></i>
-                                    </a>
+                                <td><a href="" class="btn btn-primary"><i class="fas fa-download"></i> Unduh Bukti</a>
                                 </td>
-                            </tr>
-                            <tr role="row" class="odd">
-                                <td class="sorting_1">2</td>
-                                <td>Sri</td>
-                                <td>Senin, 1 Desember 2025</td>
-                                <td>Masuk</td>
-                                <td>Masuk</td>
-                                <td><a href="" class="btn btn-primary"><i class="fas fa-download"></i> Unduh Bukti</a></td>
                                 <td>
                                   <a href="" class="btn btn-icon btn-primary">
                                     <i class="fas fa-edit"></i>
@@ -425,147 +422,7 @@
                                   </a>
                                 </td>
                               </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <div class="card-header">
-                  <div class="card-head-row">
-                    <div class="card-title">Data Presensi Pulang Karyawan</div>
-                    <div class="card-tools">
-                      <a href="#" class="btn btn-label-success btn-round btn-sm mb-1">
-                        <span class="btn-label">
-                          <i class="fa fa-download me-2 ms-1"></i>
-                        </span>
-                        Export Excel
-                      </a>
-                      <a href="#" class="btn btn-label-info btn-round btn-sm mb-1">
-                        <span class="btn-label">
-                          <i class="fa fa-print me-2 ms-1"></i>
-                        </span>
-                        Print PDF
-                      </a>
-                      <!-- <a href="#" class="btn btn-label-secondary btn-round btn-sm mb-1">
-                        <span class="btn-label">
-                          <i class="fa fa-eye me-2 ms-1"></i>
-                        </span>
-                        Lihat Semua
-                      </a> -->
-                    </div>
-                  </div>
-                  <div class="row mt-1">
-                    <div class="col">
-                      <div class="form-group">
-                        <label for="exampleFormControlSelect1">Nama Karyawan</label>
-                        <select class="form-select" id="exampleFormControlSelect1">
-                          <option>=== Pilih Opsi ===</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="form-group">
-                        <label for="exampleFormControlSelect1">Hari</label>
-                        <select class="form-select" id="exampleFormControlSelect1">
-                          <option>=== Pilih Opsi ===</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="form-group">
-                        <label for="exampleFormControlSelect1">Bulan</label>
-                        <select class="form-select" id="exampleFormControlSelect1">
-                          <option>=== Pilih Opsi ===</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="form-group">
-                        <label for="exampleFormControlSelect1">Tahun</label>
-                        <select class="form-select" id="exampleFormControlSelect1">
-                          <option>=== Pilih Opsi ===</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                        </select>
-                      </div>
-                    </div>
 
-                  </div>
-                </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <div id="multi-filter-select_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
-                      <div class="row">
-                        <div class="col-sm-12">
-                          <table id="multi-filter-select" class="display table table-striped table-hover dataTable"
-                            role="grid" aria-describedby="multi-filter-select_info">
-                            <thead>
-                              <tr role="row">
-                                <th class="sorting_asc" tabindex="0" aria-controls="multi-filter-select" rowspan="1" colspan="1" aria-sort="ascending" aria-label="No: activate to sort column descending"
-                                  style="width: 1rem;">No</th>
-                                <th class="sorting" tabindex="0" aria-controls="multi-filter-select" rowspan="1" colspan="1" aria-label="Nama: activate to sort column ascending">Nama</th>
-                                <th class="sorting" tabindex="0" aria-controls="multi-filter-select" rowspan="1" colspan="1" aria-label="Tanggal : activate to sort column ascending">Tanggal </th>
-                                <th class="sorting" tabindex="0" aria-controls="multi-filter-select" rowspan="1" colspan="1" aria-label="Presensi : activate to sort column ascending">Presensi </th>
-                                <th class="sorting" tabindex="0" aria-controls="multi-filter-select" rowspan="1" colspan="1" aria-label="Keterangan : activate to sort column ascending">Keterangan </th>
-                                <th class="sorting" tabindex="0" aria-controls="multi-filter-select" rowspan="1" colspan="1" aria-label="Bukti Presensi : activate to sort column ascending">Bukti Presensi </th>
-                                <th class="sorting" tabindex="0" aria-controls="multi-filter-select" rowspan="1" colspan="1" aria-label="Hasil: activate to sort column ascending">Aksi</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr role="row" class="odd">
-                                <td class="sorting_1">1</td>
-                                <td>Sanci</td>
-                                <td>Senin, 1 Desember 2025</td>
-                                <td>Pulang</td>
-                                <td>Pulang</td>
-                                <td><a href="" class="btn btn-primary"><i class="fas fa-download"></i> Unduh Bukti</a></td>
-                                <td>
-                                    <a href="" class="btn btn-icon btn-primary">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <a href="" class="btn btn-icon btn-danger">
-                                        <i class="fa fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr role="row" class="odd">
-                                <td class="sorting_1">2</td>
-                                <td>Sri</td>
-                                <td>Senin, 1 Desember 2025</td>
-                                <td>Pulang</td>
-                                <td>Pulang</td>
-                                <td><a href="" class="btn btn-primary"><i class="fas fa-download"></i> Unduh Bukti</a></td>
-                                <td>
-                                  <a href="" class="btn btn-icon btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                  </a>
-                                  <a href="" class="btn btn-icon btn-danger">
-                                    <i class="fa fa-trash"></i>
-                                  </a>
-                                </td>
-                              </tr>
                             </tbody>
                           </table>
                         </div>
@@ -576,6 +433,8 @@
               </div>
             </div>
           </div>
+
+
         </div>
 
 
